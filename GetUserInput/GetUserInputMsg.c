@@ -114,7 +114,7 @@ MSG POS_GetKeyPadMsg(void)
 			 if(KEYRELEASE != curKey.Status)
 			 {
 				g_bReleaseAdcKeyFlg = FALSE;
-				curKeyCmd = POS_TransferAdcKeyCmd(curKey);
+				curKeyCmd = POS_TransferAdcKeyCmd(curKey);    //根据按键返回的值查找弘命令
 			 }
 			 else
 			 {
@@ -205,6 +205,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 	 
 	 for(i = 0; i < sizeof(SysAdcKeyCmdMap)/sizeof(SysAdcKeyCmdMap[0]); i++)
 	 {
+	 	printf("Key.KeyVal = %x",Key.KeyVal);
 	    if(NULL_KEY == SysAdcKeyCmdMap[i].KeyVal)
 	    {
 	        continue;

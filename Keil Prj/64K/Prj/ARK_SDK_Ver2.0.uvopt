@@ -422,10 +422,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>42</ColumnNumber>
+      <ColumnNumber>75</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>94</TopLine>
-      <CurrentLine>109</CurrentLine>
+      <TopLine>89</TopLine>
+      <CurrentLine>100</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -481,7 +481,7 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>202</TopLine>
-      <CurrentLine>221</CurrentLine>
+      <CurrentLine>202</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Interrupt.c</PathWithFileName>
       <FilenameWithoutPath>Interrupt.c</FilenameWithoutPath>
@@ -527,10 +527,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16006739</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26950328</TopLine>
-      <CurrentLine>9378664</CurrentLine>
+      <TopLine>166</TopLine>
+      <CurrentLine>166</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\GetUserInput\Key\AdcKeyPad.c</PathWithFileName>
       <FilenameWithoutPath>AdcKeyPad.c</FilenameWithoutPath>
@@ -968,10 +968,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>84</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>756</TopLine>
-      <CurrentLine>774</CurrentLine>
+      <CurrentLine>771</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -1063,9 +1063,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\项目文件\FPV Goggles Project\项目工程\AMT630A_800x480\INC\GLOBAL.H</PathWithFilename>
+    <PathWithFilename>E:\github\AMT630A_Project\INC\GLOBAL.H</PathWithFilename>
     <TopLine>476</TopLine>
-    <CurrentLine>500</CurrentLine>
+    <CurrentLine>476</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1089,9 +1089,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\项目文件\FPV Goggles Project\项目工程\AMT630A_800x480\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
+    <PathWithFilename>E:\github\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
     <TopLine>352</TopLine>
-    <CurrentLine>374</CurrentLine>
+    <CurrentLine>352</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2455,25 +2455,31 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
+          <Name>..\..\..\GetUserInput\Key\AdcKeyPad.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>166</TopLine>
+          <CurrentLine>166</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>3</ColumnNumber>
+          <ColumnNumber>84</ColumnNumber>
           <TopLine>756</TopLine>
-          <CurrentLine>774</CurrentLine>
+          <CurrentLine>771</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Interrupt.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>202</TopLine>
-          <CurrentLine>221</CurrentLine>
+          <CurrentLine>202</CurrentLine>
         </Doc>
         <Doc>
           <Name>../../../USERCONFIG/PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</Name>
-          <ColumnNumber>9</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>352</TopLine>
-          <CurrentLine>374</CurrentLine>
+          <CurrentLine>352</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\TouchKeyPad.c</Name>
@@ -2489,9 +2495,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>42</ColumnNumber>
-          <TopLine>94</TopLine>
-          <CurrentLine>109</CurrentLine>
+          <ColumnNumber>75</ColumnNumber>
+          <TopLine>89</TopLine>
+          <CurrentLine>100</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\GetSysMsg.c</Name>
@@ -2533,7 +2539,7 @@
           <Name>../../../INC\GLOBAL.H</Name>
           <ColumnNumber>65</ColumnNumber>
           <TopLine>476</TopLine>
-          <CurrentLine>500</CurrentLine>
+          <CurrentLine>476</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

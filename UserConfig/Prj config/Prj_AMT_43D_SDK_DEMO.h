@@ -179,16 +179,16 @@
 <<<<<<<<<<<<<<<<<<<<   按键功能配置>>>>>>>>>>>>>>>>>>>>>
 =========================================================*/ 
 //[Key detect Ctrl]
-//#define KeyDetectEn            //按键检测使能开关
+#define KeyDetectEn            //按键检测使能开关
 
 #ifdef KeyDetectEn 
 #define hw_upResistance      			12000     //上拉电阻值  12k
-#define hw_downResistance    			0        // 0:表示无下拉电阻
+//#define hw_downResistance    			0        // 0:表示无下拉电阻
 #define hw_keyVoltage        			3.3  
-#define ADC_CH_LIST         			{CH2} //{CH0,CH1,CH2} //通道列表   
+#define ADC_CH_LIST         			{CH0} //{CH0,CH1,CH2} //通道列表   
 #define hw_Key_getSDA_input()     	GetP1_0()      //SDA
-#define hw_Key_setSDA_output(x)   	SetP1_0(x)    //SDA
-#define hw_Key_setSCL_output(x)   	SetP1_1(x)  //SCL
+#define hw_Key_setSDA_output(x)   	SetP1_0(x)     //SDA
+#define hw_Key_setSCL_output(x)   	SetP1_1(x)     //SCL
 
 #define ADCKEY_PAD_ID        			KP_ARK_DEBUG_V01  //按键板
 #define I2CKEY_PAD_ID        			KP_ZYD_909K_V10  //I2C 按键板
@@ -545,10 +545,10 @@
 /*TP: Test Point，测试点都是通过串口打印来监测相应测试变量，
 所以需要使能串口打印测试才能有效。
 */
-#define  TP0_ADC    DISABLE  /*ADC 底层采样值(不经过滤波)*/
-#define  TP1_ADC    DISABLE  /*ADC 经过滤波处理后的值*/
-#define  TP2_ADC    DISABLE  /*ADC Key 返回给应用层的按键值*/
-#define  TP3_ADC    DISABLE   /*ADC Key 返回给应用层对应的命令值*/
+#define  TP0_ADC    DISABLE  /*ADC 底层采样值(不经过滤波)*/S
+#define  TP1_ADC    ENABLE  /*ADC 经过滤波处理后的值*/
+#define  TP2_ADC    DISABLE   /*ADC Key 返回给应用层的按键值*/
+#define  TP3_ADC    ENABLE   /*ADC Key 返回给应用层对应的命令值*/
 
 #define  TP1_KEY    DISABLE  /*Key 返回给应用层对应的消息*/
 

@@ -17,7 +17,7 @@
 #ifdef KeyDetectEn 
 
 #if hw_upResistance 
-#define hw_keyAdcVal(rVal)  ((UINT)(4096*((float)rVal*hw_keyVoltage/(((float)rVal+hw_upResistance)*3.3))))>>4
+#define hw_keyAdcVal(rVal)  ((UINT)(4096*((float)rVal*hw_keyVoltage/(((float)rVal+hw_upResistance)*3.3))))>>4         //hw_upResistance = 12000
 #endif
 
 #if hw_downResistance
@@ -27,19 +27,19 @@
 
 #if(ADCKEY_PAD_ID == KP_ARK_DEBUG_V01)
 //key val : adcCh + adcVal
-#define hw_KEY_POWER    	makeUint16 (CH2, hw_keyAdcVal(0))
-#define hw_KEY_SOURCE     	makeUint16 (CH2, hw_keyAdcVal(27000))
-#define hw_KEY_MENU   		makeUint16 (CH2, hw_keyAdcVal(56000))
-#define hw_KEY_LEFT     	makeUint16 (CH2, hw_keyAdcVal(8200))
-#define hw_KEY_RIGHT    	makeUint16 (CH2, hw_keyAdcVal(15000))
+#define hw_KEY_POWER    	makeUint16 (CH0, hw_keyAdcVal(0))       //  0
+#define hw_KEY_SOURCE     	makeUint16 (CH0, hw_keyAdcVal(27000))   //27000 
+#define hw_KEY_MENU   		makeUint16 (CH0, hw_keyAdcVal(56000))   //56000
+#define hw_KEY_LEFT     	makeUint16 (CH0, hw_keyAdcVal(8200))    //8200
+#define hw_KEY_RIGHT    	makeUint16 (CH0, hw_keyAdcVal(15000))   //15000
 
 
 //ADC Key Cmd Map
-#define AdcKeyCmdMap {hw_KEY_POWER,     KEY_POWER        },\
-	                  {hw_KEY_SOURCE,    KEY_SOURCE_SWITCH},\
-                      {hw_KEY_LEFT ,	   KEY_LEFT       },\
-                      {hw_KEY_MENU,      KEY_MENU         },\
-                      {hw_KEY_RIGHT ,	   KEY_RIGHT      },
+#define AdcKeyCmdMap  {hw_KEY_POWER ,     KEY_POWER        },\
+	                  {hw_KEY_SOURCE,     KEY_SOURCE_SWITCH},\
+                      {hw_KEY_LEFT  ,	  KEY_LEFT         },\
+                      {hw_KEY_MENU  ,     KEY_MENU         },\
+                      {hw_KEY_RIGHT ,	  KEY_RIGHT        },
 
 
 #endif// #if(ADCKEY_PAD_ID == KP_ARK_DEBUG_V01)
@@ -48,9 +48,9 @@
 //key val
 #define hw_I2CKEY_POWER       			0X0001
 #define hw_I2CKEY_SOURCE    	    	0X0002
-#define hw_I2CKEY_LEFT         		0X0008
+#define hw_I2CKEY_LEFT         		    0X0008
 #define hw_I2CKEY_MENU        	   	 	0X0100
-#define hw_I2CKEY_RIGHT            	0X0400
+#define hw_I2CKEY_RIGHT            	    0X0400
 
 
 //I2C Key Cmd Map
@@ -63,7 +63,7 @@
 #endif //#if(I2CKEY_PAD_ID == KP_ZYD_909K_V10)
 
 /* 按键对应的消息映射表*/
-#define GeneralKeyMsgMap  {MSG_UPK_POWER, 		KEY_POWER 	       },\
+#define GeneralKeyMsgMap    {MSG_UPK_POWER, 		KEY_POWER 	       },\
 							{MSG_UPK_SOURCE_SWITCH, KEY_SOURCE_SWITCH  },\
 			                {MSG_UPK_LEFT,  		KEY_LEFT  	       },\
 			                {MSG_UPK_MENU, 		    KEY_MENU		   },\

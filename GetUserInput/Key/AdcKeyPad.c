@@ -158,21 +158,21 @@ KeyInfor POS_ReleaseAdcKey(UINT AdcKeyVal)
 ************************************************************/
 KeyInfor POS_GetAdcKeyValue(void)
 {   
-    static UCHAR    CODE  ChannelBuf[] = ADC_CH_LIST;
-	static UINT     XDATA AdcKeyValBuf[] = {0XFFFF,0XFFFF,0XFFFF,0XFFFF};
+    static UCHAR    CODE  ChannelBuf[] = ADC_CH_LIST;      //选择要采集的ADC通道
+	static UINT     XDATA AdcKeyValBuf[] = {0XFFFF,0XFFFF,0XFFFF,0XFFFF};   //ADC 采样零时缓冲区
     static UCHAR    XDATA AdcChannel = 0;
 	static UCHAR    XDATA Index = 0;	
 	KeyInfor XDATA tmpKey = {NULL_KEY,MSG_NULL,NULL_TIME,KEYRELEASE};
-	UINT  XDATA CurrentAdcVal;
+	UINT  XDATA CurrentAdcVal;             //记录当前的ADC值
     
 	
     AdcKeyValBuf[Index] = POS_EnableChipAdc(ChannelBuf[AdcChannel])>>4;
-	Index++;
+	Index++;                               //记录当前采集次数
 	
 	if(Index >= (sizeof(AdcKeyValBuf)/2)) //note:该数组类型为int 
 	{  
 	   Index = 0; 
-	   CurrentAdcVal = POS_FilterAdcKeyVal(AdcKeyValBuf,sizeof(AdcKeyValBuf)/2);
+	   CurrentAdcVal = POS_FilterAdcKeyVal(AdcKeyValBuf,sizeof(AdcKeyValBuf)/2);    //采集到4次数据后，做平均滤波
 	   CurrentAdcVal |= (((UINT)(ChannelBuf[AdcChannel]))<<12);//添加通道信息。
 
 	   if(readFlg(CurrentAdcVal, KeyOkFlg) == KeyOkFlg)
@@ -195,9 +195,10 @@ KeyInfor POS_GetAdcKeyValue(void)
 				{
 				  AdcChannel = 0;
 				}
+				printf("TP1_ADC >> the KeyStatus is up!\n");
 				return (POS_ReleaseAdcKey(clrFlg(CurrentAdcVal, KeyOkFlg)));
            }
-		   else
+		   else                                                           //按键按下
 		   {
 		       CurrentKey.KeyVal = clrFlg(CurrentAdcVal , KeyOkFlg);
 			   PreKey.KeyVal = clrFlg(CurrentAdcVal , KeyOkFlg);
@@ -210,6 +211,7 @@ KeyInfor POS_GetAdcKeyValue(void)
 			   tmpKey.KeyVal = CurrentKey.KeyVal;
                tmpKey.Holdtime = CurrentKey.Holdtime;
 			   tmpKey.Status = KEYHOLD;
+			   printf("TP1_ADC >> the KeyStatus is down!\n");
 			   return tmpKey;
            }
 	   }

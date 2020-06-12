@@ -41,12 +41,13 @@ void main(void)
 	MenuProcessKey(COMD_SelPowerOnMode);
 	
 	printfStr("<<<<<<<<<<<<<<  Enter main loop >>>>>>>>>>>>\n");	
+	printfStr("test ADC TP3_KEY :   \n");
 	
 	while(1)
 	{   
 	    MSG curMsg;
 
-		POS_ClearWatchDog();
+		POS_ClearWatchDog();	 
 		
 
 	    /**********SPI驱动屏的VCOM调节*********/
