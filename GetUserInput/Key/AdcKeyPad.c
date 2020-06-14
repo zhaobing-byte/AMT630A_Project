@@ -195,7 +195,7 @@ KeyInfor POS_GetAdcKeyValue(void)
 				{
 				  AdcChannel = 0;
 				}
-				printf("TP1_ADC >> the KeyStatus is up!\n");
+			//	printf("TP1_ADC >> the KeyStatus is up!\n");
 				return (POS_ReleaseAdcKey(clrFlg(CurrentAdcVal, KeyOkFlg)));
            }
 		   else                                                           //°´¼ü°´ÏÂ
@@ -211,7 +211,7 @@ KeyInfor POS_GetAdcKeyValue(void)
 			   tmpKey.KeyVal = CurrentKey.KeyVal;
                tmpKey.Holdtime = CurrentKey.Holdtime;
 			   tmpKey.Status = KEYHOLD;
-			   printf("TP1_ADC >> the KeyStatus is down!\n");
+			 //  printf("TP1_ADC >> the KeyStatus is down!\n");
 			   return tmpKey;
            }
 	   }

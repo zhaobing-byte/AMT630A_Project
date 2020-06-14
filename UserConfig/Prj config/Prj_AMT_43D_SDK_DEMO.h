@@ -182,7 +182,7 @@
 #define KeyDetectEn            //按键检测使能开关
 
 #ifdef KeyDetectEn 
-#define hw_upResistance      			12000     //上拉电阻值  12k
+#define hw_upResistance      			2000     //上拉电阻值  12k
 //#define hw_downResistance    			0        // 0:表示无下拉电阻
 #define hw_keyVoltage        			3.3  
 #define ADC_CH_LIST         			{CH0} //{CH0,CH1,CH2} //通道列表   
@@ -546,9 +546,9 @@
 所以需要使能串口打印测试才能有效。
 */
 #define  TP0_ADC    DISABLE  /*ADC 底层采样值(不经过滤波)*/S
-#define  TP1_ADC    ENABLE  /*ADC 经过滤波处理后的值*/
+#define  TP1_ADC    DISABLE  /*ADC 经过滤波处理后的值*/
 #define  TP2_ADC    DISABLE   /*ADC Key 返回给应用层的按键值*/
-#define  TP3_ADC    ENABLE   /*ADC Key 返回给应用层对应的命令值*/
+#define  TP3_ADC    DISABLE   /*ADC Key 返回给应用层对应的命令值*/
 
 #define  TP1_KEY    ENABLE  /*Key 返回给应用层对应的消息*/
 

@@ -422,10 +422,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>74</ColumnNumber>
+      <ColumnNumber>30</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>89</TopLine>
-      <CurrentLine>112</CurrentLine>
+      <TopLine>35</TopLine>
+      <CurrentLine>63</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -450,10 +450,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>22</ColumnNumber>
+      <ColumnNumber>32</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>146</TopLine>
-      <CurrentLine>157</CurrentLine>
+      <TopLine>33</TopLine>
+      <CurrentLine>68</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\GetSysMsg.c</PathWithFileName>
       <FilenameWithoutPath>GetSysMsg.c</FilenameWithoutPath>
@@ -513,10 +513,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>15</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>42</CurrentLine>
+      <TopLine>33</TopLine>
+      <CurrentLine>35</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\GetUserInput\GetUserInputMsg.c</PathWithFileName>
       <FilenameWithoutPath>GetUserInputMsg.c</FilenameWithoutPath>
@@ -527,10 +527,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>40</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>166</TopLine>
-      <CurrentLine>166</CurrentLine>
+      <TopLine>124</TopLine>
+      <CurrentLine>175</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\GetUserInput\Key\AdcKeyPad.c</PathWithFileName>
       <FilenameWithoutPath>AdcKeyPad.c</FilenameWithoutPath>
@@ -665,7 +665,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -968,10 +968,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>84</ColumnNumber>
+      <ColumnNumber>203</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>756</TopLine>
-      <CurrentLine>771</CurrentLine>
+      <TopLine>252</TopLine>
+      <CurrentLine>252</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -1008,7 +1008,7 @@
       <GroupNumber>8</GroupNumber>
       <FileNumber>56</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>16006739</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1090,8 +1090,60 @@
 
   <AlienFiles>
     <PathWithFilename>F:\git\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
-    <TopLine>167</TopLine>
-    <CurrentLine>192</CurrentLine>
+    <TopLine>515</TopLine>
+    <CurrentLine>549</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>F:\git\AMT630A_Project\GETUSERINPUT\KEY\KEYPADMAP.H</PathWithFilename>
+    <TopLine>17</TopLine>
+    <CurrentLine>47</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>F:\git\AMT630A_Project\INC\DATATYPE.H</PathWithFilename>
+    <TopLine>115</TopLine>
+    <CurrentLine>127</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2455,19 +2507,19 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>3</ActiveTab>
+      <ActiveTab>15</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\AdcKeyPad.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>166</TopLine>
-          <CurrentLine>166</CurrentLine>
+          <ColumnNumber>40</ColumnNumber>
+          <TopLine>124</TopLine>
+          <CurrentLine>175</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>84</ColumnNumber>
-          <TopLine>756</TopLine>
-          <CurrentLine>771</CurrentLine>
+          <ColumnNumber>203</ColumnNumber>
+          <TopLine>252</TopLine>
+          <CurrentLine>252</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Interrupt.c</Name>
@@ -2477,9 +2529,9 @@
         </Doc>
         <Doc>
           <Name>../../../USERCONFIG/PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</Name>
-          <ColumnNumber>143</ColumnNumber>
-          <TopLine>167</TopLine>
-          <CurrentLine>192</CurrentLine>
+          <ColumnNumber>24</ColumnNumber>
+          <TopLine>515</TopLine>
+          <CurrentLine>549</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\TouchKeyPad.c</Name>
@@ -2495,15 +2547,15 @@
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>74</ColumnNumber>
-          <TopLine>89</TopLine>
-          <CurrentLine>112</CurrentLine>
+          <ColumnNumber>30</ColumnNumber>
+          <TopLine>35</TopLine>
+          <CurrentLine>63</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\GetSysMsg.c</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>146</TopLine>
-          <CurrentLine>157</CurrentLine>
+          <ColumnNumber>32</ColumnNumber>
+          <TopLine>33</TopLine>
+          <CurrentLine>68</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Global.c</Name>
@@ -2543,9 +2595,21 @@
         </Doc>
         <Doc>
           <Name>..\..\..\GetUserInput\GetUserInputMsg.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>42</CurrentLine>
+          <ColumnNumber>15</ColumnNumber>
+          <TopLine>33</TopLine>
+          <CurrentLine>35</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\GETUSERINPUT\KEY\KEYPADMAP.H</Name>
+          <ColumnNumber>87</ColumnNumber>
+          <TopLine>17</TopLine>
+          <CurrentLine>47</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>../../../INC\DATATYPE.H</Name>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>115</TopLine>
+          <CurrentLine>127</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

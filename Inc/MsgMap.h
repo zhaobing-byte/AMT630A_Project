@@ -67,7 +67,7 @@ typedef enum _MacroKeyVal
 	KEY_VOL_INC,         	   
 	KEY_VOL_DEC,          	   
 	KEY_MENU,               
-	KEY_SOURCE_SWITCH,
+	KEY_SOURCE_SWITCH,		 
 	KEY_MODE,
 	KEY_xxxx,
 	KEY_NULL = -1,               

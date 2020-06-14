@@ -205,7 +205,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 	 
 	 for(i = 0; i < sizeof(SysAdcKeyCmdMap)/sizeof(SysAdcKeyCmdMap[0]); i++)
 	 {
-	 	printf("Key.KeyVal = %x",Key.KeyVal);
+	 	//printf("Key.KeyVal = %x",Key.KeyVal);
 	    if(NULL_KEY == SysAdcKeyCmdMap[i].KeyVal)
 	    {
 	        continue;

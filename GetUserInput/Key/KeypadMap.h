@@ -24,22 +24,23 @@
 #define hw_keyAdcVal(rVal)  ((UINT)(4096*((float)hw_downResistance*hw_keyVoltage/(((float)rVal+hw_downResistance)*3.3))))>>4
 #endif
 
+//按键 上拉2K  分压电阻 POWER（0欧姆）  LEFT（12K）  MENU（4.7K） RIGHT（20K）
 
 #if(ADCKEY_PAD_ID == KP_ARK_DEBUG_V01)
 //key val : adcCh + adcVal
 #define hw_KEY_POWER    	makeUint16 (CH0, hw_keyAdcVal(0))       //  0
-#define hw_KEY_SOURCE     	makeUint16 (CH0, hw_keyAdcVal(27000 ))   //27000 
-#define hw_KEY_MENU   		makeUint16 (CH0, hw_keyAdcVal(56000))   //56000
-#define hw_KEY_LEFT     	makeUint16 (CH0, hw_keyAdcVal(8200))    //8200
+#define hw_KEY_SOURCE     	makeUint16 (CH0, hw_keyAdcVal(20000 ))  //27000   12000
+#define hw_KEY_MENU   		makeUint16 (CH0, hw_keyAdcVal(4700))   //56000
+#define hw_KEY_LEFT     	makeUint16 (CH0, hw_keyAdcVal(12000))    //8200	  20000
 #define hw_KEY_RIGHT    	makeUint16 (CH0, hw_keyAdcVal(15000))   //15000
 
 
 //ADC Key Cmd Map
-#define AdcKeyCmdMap  {hw_KEY_POWER ,     KEY_POWER        },\
-	                  {hw_KEY_SOURCE,     KEY_SOURCE_SWITCH},\
-                      {hw_KEY_LEFT  ,	  KEY_LEFT         },\
-                      {hw_KEY_MENU  ,     KEY_MENU         },\
-                      {hw_KEY_RIGHT ,	  KEY_RIGHT        },
+#define AdcKeyCmdMap  {hw_KEY_POWER ,     KEY_POWER         },\
+	                  {hw_KEY_SOURCE,     KEY_RIGHT         },\			 
+                      {hw_KEY_LEFT  ,	  KEY_LEFT          },\
+                      {hw_KEY_MENU  ,     KEY_MENU          },\
+                      {hw_KEY_RIGHT ,	  KEY_SOURCE_SWITCH },  
 
 
 #endif// #if(ADCKEY_PAD_ID == KP_ARK_DEBUG_V01)
@@ -54,11 +55,11 @@
 
 
 //I2C Key Cmd Map
-#define I2cKeyCmdMap	{hw_I2CKEY_POWER,     KEY_POWER        },\
-	                  	{hw_I2CKEY_SOURCE,    KEY_SOURCE_SWITCH},\
-	                  	{hw_I2CKEY_LEFT ,	   	KEY_LEFT         },\
-	                  	{hw_I2CKEY_MENU,      KEY_MENU         },\
-	                  	{hw_I2CKEY_RIGHT ,	KEY_RIGHT        },
+#define I2cKeyCmdMap	{hw_I2CKEY_POWER,     KEY_POWER          },\
+	                  	{hw_I2CKEY_SOURCE,    KEY_SOURCE_SWITCH  },\
+	                  	{hw_I2CKEY_LEFT ,	  KEY_LEFT           },\
+	                  	{hw_I2CKEY_MENU,      KEY_MENU           },\
+	                  	{hw_I2CKEY_RIGHT ,	  KEY_RIGHT          },
 	                  
 #endif //#if(I2CKEY_PAD_ID == KP_ZYD_909K_V10)
 
