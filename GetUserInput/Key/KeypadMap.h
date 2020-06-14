@@ -28,7 +28,7 @@
 #if(ADCKEY_PAD_ID == KP_ARK_DEBUG_V01)
 //key val : adcCh + adcVal
 #define hw_KEY_POWER    	makeUint16 (CH0, hw_keyAdcVal(0))       //  0
-#define hw_KEY_SOURCE     	makeUint16 (CH0, hw_keyAdcVal(27000))   //27000 
+#define hw_KEY_SOURCE     	makeUint16 (CH0, hw_keyAdcVal(27000 ))   //27000 
 #define hw_KEY_MENU   		makeUint16 (CH0, hw_keyAdcVal(56000))   //56000
 #define hw_KEY_LEFT     	makeUint16 (CH0, hw_keyAdcVal(8200))    //8200
 #define hw_KEY_RIGHT    	makeUint16 (CH0, hw_keyAdcVal(15000))   //15000

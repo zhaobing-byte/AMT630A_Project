@@ -422,10 +422,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>74</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>89</TopLine>
-      <CurrentLine>102</CurrentLine>
+      <CurrentLine>112</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -513,10 +513,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16006739</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26950328</TopLine>
-      <CurrentLine>9378664</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>42</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\GetUserInput\GetUserInputMsg.c</PathWithFileName>
       <FilenameWithoutPath>GetUserInputMsg.c</FilenameWithoutPath>
@@ -665,7 +665,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -1008,7 +1008,7 @@
       <GroupNumber>8</GroupNumber>
       <FileNumber>56</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>16006739</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1063,7 +1063,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\github\AMT630A_Project\INC\GLOBAL.H</PathWithFilename>
+    <PathWithFilename>F:\git\AMT630A_Project\INC\GLOBAL.H</PathWithFilename>
     <TopLine>476</TopLine>
     <CurrentLine>476</CurrentLine>
     <Constant>0</Constant>
@@ -1089,9 +1089,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\github\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
-    <TopLine>352</TopLine>
-    <CurrentLine>352</CurrentLine>
+    <PathWithFilename>F:\git\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
+    <TopLine>167</TopLine>
+    <CurrentLine>192</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2455,7 +2455,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>6</ActiveTab>
+      <ActiveTab>3</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\AdcKeyPad.c</Name>
@@ -2477,9 +2477,9 @@
         </Doc>
         <Doc>
           <Name>../../../USERCONFIG/PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>352</TopLine>
-          <CurrentLine>352</CurrentLine>
+          <ColumnNumber>143</ColumnNumber>
+          <TopLine>167</TopLine>
+          <CurrentLine>192</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\TouchKeyPad.c</Name>
@@ -2495,9 +2495,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
+          <ColumnNumber>74</ColumnNumber>
           <TopLine>89</TopLine>
-          <CurrentLine>102</CurrentLine>
+          <CurrentLine>112</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\GetSysMsg.c</Name>
@@ -2540,6 +2540,12 @@
           <ColumnNumber>65</ColumnNumber>
           <TopLine>476</TopLine>
           <CurrentLine>476</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\GetUserInput\GetUserInputMsg.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>42</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

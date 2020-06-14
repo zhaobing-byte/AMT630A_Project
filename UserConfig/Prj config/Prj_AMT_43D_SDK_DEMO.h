@@ -550,7 +550,7 @@
 #define  TP2_ADC    DISABLE   /*ADC Key 返回给应用层的按键值*/
 #define  TP3_ADC    ENABLE   /*ADC Key 返回给应用层对应的命令值*/
 
-#define  TP1_KEY    DISABLE  /*Key 返回给应用层对应的消息*/
+#define  TP1_KEY    ENABLE  /*Key 返回给应用层对应的消息*/
 
 #define  TP0_RM     DISABLE  /*Remote 底层采样红外值*/   
 #define  TP1_RM     DISABLE  /*Remote 按键值对应的消息值*/

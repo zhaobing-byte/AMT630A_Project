@@ -422,10 +422,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>75</ColumnNumber>
+      <ColumnNumber>74</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>89</TopLine>
-      <CurrentLine>100</CurrentLine>
+      <CurrentLine>112</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -513,10 +513,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16006739</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26950328</TopLine>
-      <CurrentLine>9378664</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>42</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\GetUserInput\GetUserInputMsg.c</PathWithFileName>
       <FilenameWithoutPath>GetUserInputMsg.c</FilenameWithoutPath>
@@ -968,10 +968,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>84</ColumnNumber>
+      <ColumnNumber>230</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>756</TopLine>
-      <CurrentLine>771</CurrentLine>
+      <TopLine>294</TopLine>
+      <CurrentLine>323</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -1063,7 +1063,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\github\AMT630A_Project\INC\GLOBAL.H</PathWithFilename>
+    <PathWithFilename>F:\git\AMT630A_Project\INC\GLOBAL.H</PathWithFilename>
     <TopLine>476</TopLine>
     <CurrentLine>476</CurrentLine>
     <Constant>0</Constant>
@@ -1089,9 +1089,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\github\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
-    <TopLine>352</TopLine>
-    <CurrentLine>352</CurrentLine>
+    <PathWithFilename>F:\git\AMT630A_Project\USERCONFIG\PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</PathWithFilename>
+    <TopLine>167</TopLine>
+    <CurrentLine>192</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2455,7 +2455,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>6</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\AdcKeyPad.c</Name>
@@ -2465,9 +2465,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>84</ColumnNumber>
-          <TopLine>756</TopLine>
-          <CurrentLine>771</CurrentLine>
+          <ColumnNumber>230</ColumnNumber>
+          <TopLine>294</TopLine>
+          <CurrentLine>323</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Interrupt.c</Name>
@@ -2477,9 +2477,9 @@
         </Doc>
         <Doc>
           <Name>../../../USERCONFIG/PRJ CONFIG\PRJ_AMT_43D_SDK_DEMO.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>352</TopLine>
-          <CurrentLine>352</CurrentLine>
+          <ColumnNumber>143</ColumnNumber>
+          <TopLine>167</TopLine>
+          <CurrentLine>192</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\GetUserInput\Key\TouchKeyPad.c</Name>
@@ -2495,9 +2495,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>75</ColumnNumber>
+          <ColumnNumber>74</ColumnNumber>
           <TopLine>89</TopLine>
-          <CurrentLine>100</CurrentLine>
+          <CurrentLine>112</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\GetSysMsg.c</Name>
@@ -2540,6 +2540,12 @@
           <ColumnNumber>65</ColumnNumber>
           <TopLine>476</TopLine>
           <CurrentLine>476</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\GetUserInput\GetUserInputMsg.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>42</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

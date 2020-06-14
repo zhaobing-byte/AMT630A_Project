@@ -321,7 +321,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
      }
 	 
      //°´¼üOSD´¦Àí:
-	 ucComd = FindComdInCurMenuItem(curMsg);	 
+	 //ucComd = FindComdInCurMenuItem(curMsg);	 
 	 return ucComd;
 }
 
