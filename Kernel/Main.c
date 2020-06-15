@@ -48,8 +48,6 @@ void main(void)
 	    MSG curMsg;
 
 		POS_ClearWatchDog();	 
-		
-
 	    /**********SPI驱动屏的VCOM调节*********/
 		#ifdef SpiInitPannelEn
 	    #ifdef SpiAdjRegEn 

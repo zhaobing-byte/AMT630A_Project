@@ -274,6 +274,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 }
 						 g_UserInputInfo.Status &=(~inputSpHold);
 						 g_UserInputInfo.Status &= (~inputHold);
+						 printf("KEYPRESS!!!");
 					 }
 	                 else if(Key.Status == KEYHOLD)
 	                 {					
@@ -286,7 +287,8 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						}
 						else if(Key.Holdtime == SpRepeatTime)
 						{
-						   g_UserInputInfo.Status =(inputSpHold |inputHold);				
+						   g_UserInputInfo.Status =(inputSpHold |inputHold);
+						   printf("KEYHOLD!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");				
 						}
 	                 }				  
 					 
@@ -335,6 +337,7 @@ UCHAR POS_TransferI2CKeyCmd(KeyInfor Key)
 				 }
 				 g_UserInputInfo.Status &=(~inputSpHold);
 				 g_UserInputInfo.Status &= (~inputHold);
+			
 			}
 			else if(Key.Status == KEYHOLD)
            {		
@@ -346,7 +349,7 @@ UCHAR POS_TransferI2CKeyCmd(KeyInfor Key)
 				}
 				else if(Key.Holdtime == SpRepeatTime)
 				{
-				   g_UserInputInfo.Status =(inputSpHold |inputHold);				
+				   g_UserInputInfo.Status =(inputSpHold |inputHold);	
 				}
             }
 

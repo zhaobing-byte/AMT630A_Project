@@ -51,7 +51,7 @@ typedef enum _sysMsg
    //背光相关MSG
    MSG_TURNOFF_BACKLIGHT,
    MSG_TURNON_BACKLIGHT,
-   
+   										   
    //电池相关MSG
    MSG_BATTERYADC,
    

@@ -174,6 +174,19 @@
 #endif
 
 
+/*========================================================
+<<<<<<<<<<<<<<<<<<<<   SPI 功能配置  >>>>>>>>>>>>>>>>>>>>>
+=========================================================*/ 
+#define SPIDetectEn
+
+#ifdef SPIDetectEn
+
+#define hw_spi_setSEL_output(x)			   SetP3_7(x)
+#define hw_spi_setCLK_output(x)			   SetP0_7(x)
+#define hw_spi_setSDA_output(x)            SetP0_6(x)
+#define hw_spi_getSDA_input()              GetP0_6()
+
+#endif
 
 /*========================================================
 <<<<<<<<<<<<<<<<<<<<   按键功能配置>>>>>>>>>>>>>>>>>>>>>
@@ -342,7 +355,7 @@
 #define hw_turnToLeft()     	{hw_SfrDisp_PinRL(1); hw_SfrDisp_PinUD(0);}
 #define hw_turnToRight() 	 	{hw_SfrDisp_PinRL(0); hw_SfrDisp_PinUD(0);}
 #define hw_turnToUp()	     	{hw_SfrDisp_PinRL(0); hw_SfrDisp_PinUD(1);}
-#define hw_turnToDown()	 	{hw_SfrDisp_PinRL(1); hw_SfrDisp_PinUD(1);}
+#define hw_turnToDown()	 	    {hw_SfrDisp_PinRL(1); hw_SfrDisp_PinUD(1);}
 #endif
 
 
