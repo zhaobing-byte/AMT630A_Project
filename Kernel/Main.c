@@ -29,8 +29,8 @@
 #include "AMT_Reg.h"
 #include "AMT_Drv.h"
 #include "AMT_Mcu.h"
-
-
+#include "SPI.h"
+#include "rx_5808.h"
 void main(void)																 										   
 {  	
     DisableWatchdog();
@@ -55,7 +55,6 @@ void main(void)
 		POS_AdjustSpiReg();
 		#endif
 		#endif
-
 		
         /**********用户输入消息处理*********/
 		curMsg = POS_GetUserInputMsg(g_bGetUserInputFlg); 
@@ -64,7 +63,7 @@ void main(void)
 			OsdMsgHandle(curMsg);
 			curMsg = MSG_NULL;
 		}
-		
+		setSynthRegisterB(0x2A05);
 		/**********输入信号消息处理*********/
 		curMsg = POS_GetSignalMsg(g_bGetSignalFlg);
         if(curMsg != MSG_NULL)

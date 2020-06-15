@@ -1,3 +1,18 @@
+/***********************************************************************
+*Copyright (C) 2020 深圳哈鸣科技有限公司研发部
+* All rights reserved.
+
+*File name: 　 SPI.c
+*Version:    　0.1
+*Author:       zhaobing
+*update:       2020-06-15
+
+*Description:
+              SPI驱动程序。
+*History:  
+
+************************************************************************/
+
 #include "SPI.h"
 
 /***********************************************************
@@ -9,7 +24,7 @@
 *description:   SPI 延时程序
 *history:
 ************************************************************/
-static void SPI_Delay(UINT delayTime)
+void SPI_Delay(UINT delayTime)
 {
 	while(delayTime)
 	{
@@ -29,7 +44,7 @@ static void SPI_Delay(UINT delayTime)
 void SPI_WriteByte(UINT8 tempdata)
 {
 	int i;
-	for(i=7 ; i>=0 ; i++)
+	for(i=7 ; i>=0 ; i--)
 	{
 		if((tempdata>>i)&0x01)
 		{
@@ -40,7 +55,9 @@ void SPI_WriteByte(UINT8 tempdata)
 			spi_sda_low();
 		}
 		spi_clk_high();
+		SPI_Delay(10);
 		spi_clk_low();
+		SPI_Delay(10);
 	}
 }
 

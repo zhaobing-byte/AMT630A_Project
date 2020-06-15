@@ -185,7 +185,7 @@
 #define hw_spi_setCLK_output(x)			   SetP0_7(x)
 #define hw_spi_setSDA_output(x)            SetP0_6(x)
 #define hw_spi_getSDA_input()              GetP0_6()
-
+ 
 #endif
 
 /*========================================================
