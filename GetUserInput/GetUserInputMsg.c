@@ -27,7 +27,9 @@
 #include "GetUserInputMsg.h"
 #include "AMT_Drv.h"
 #include "Delay.h"
-
+#include "SPI.h"
+#include "rx_5808.h"
+#include "channels.h"
 
 #ifdef KeyDetectEn
 KeyCmdMap CODE SysAdcKeyCmdMap[] =
@@ -275,6 +277,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 g_UserInputInfo.Status &=(~inputSpHold);
 						 g_UserInputInfo.Status &= (~inputHold);
 						 printf("KEYPRESS!!!");
+						 setSynthRegisterB(getSynthRegisterB(0x01));
 					 }
 	                 else if(Key.Status == KEYHOLD)
 	                 {					
