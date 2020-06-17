@@ -294,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\OSD;..\..\..\OSD\Logo;../../../Inc;../../../UserConfig;../../../ARKLib;../../../UserConfig/Prj config;..\..\..\LCD Pannels;..\..\..\LCD Pannels\LCD parameter;..\..\..\GetUserInput;..\..\..\GetUserInput\Ir;..\..\..\GetUserInput\Key;..\..\..\GetUserInput\GPIO;..\..\..\Device driver\AMT;..\..\..\Device driver\ArkChip;..\..\..\Device driver\Mcu;..\..\..\Device driver\Flash;..\..\..\Device driver\I2C;..\..\..\Device driver\E2prom;..\..\..\Device driver\WT5700;..\..\..\Device driver\Kt0803l;..\..\..\Device driver\BT;..\..\..\Debug</IncludePath>
+              <IncludePath>..\..\..\OSD;..\..\..\OSD\Logo;../../../Inc;../../../UserConfig;../../../ARKLib;../../../UserConfig/Prj config;..\..\..\LCD Pannels;..\..\..\LCD Pannels\LCD parameter;..\..\..\GetUserInput;..\..\..\GetUserInput\Ir;..\..\..\GetUserInput\Key;..\..\..\GetUserInput\GPIO;..\..\..\Device driver\AMT;..\..\..\Device driver\ArkChip;..\..\..\Device driver\Mcu;..\..\..\Device driver\Flash;..\..\..\Device driver\I2C;..\..\..\Device driver\E2prom;..\..\..\Device driver\WT5700;..\..\..\Device driver\Kt0803l;..\..\..\Device driver\BT;..\..\..\Debug;..\..\..\Device driver\SPI;..\..\..\Device driver\RX5808</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -430,6 +430,16 @@
               <FileName>BT_UartRec.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Device driver\BT\BT_UartRec.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Device driver\SPI\SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>rx_5808.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Device driver\RX5808\rx_5808.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -16,6 +16,7 @@
 #define __CHANNELS_H_
 
 #include "DataType.h"
+#include "rx_5808.h"
 
 #ifdef USE_LBAND
 	#define CHANNELS_SIZE 48
@@ -28,5 +29,6 @@ UINT  getFrequency(UINT8 index);
 char *getName(UINT8 index);
 UINT8 getOrderedIndex(UINT8 index);	
 UINT8 getOrderedIndexFromIndex(UINT8 index);				   
+UINT getAdcRssiValue(UINT8 channel);
 
 #endif

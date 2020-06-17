@@ -19,6 +19,7 @@ static void sendBit(UINT8 value);
 static void sendBits(UINT32 bits, UINT8 count);
 static void sendRegister(UINT8 address, UINT32 tempdata);
 
+
 #define SPI_ADDRESS_SYNTH_A 0x01
 #define SPI_ADDRESS_POWER   0x0A
 

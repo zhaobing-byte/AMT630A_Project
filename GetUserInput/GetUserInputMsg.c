@@ -264,7 +264,8 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 			else
 			{
 			    if(Abs(SysAdcKeyCmdMap[i].KeyVal,Key.KeyVal) < KEY_OFFSET)
-				{    				 
+				{  
+					 static UINT8 i = 0;  				 
 				     g_ucPreChannel = (UCHAR)(readFlg(Key.KeyVal,AdcChannelBit)>>12);
 		             KeyCmd =  SysAdcKeyCmdMap[i].KeyCmd;
 
@@ -276,8 +277,18 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 }
 						 g_UserInputInfo.Status &=(~inputSpHold);
 						 g_UserInputInfo.Status &= (~inputHold);
-						 printf("KEYPRESS!!!");
-						 setSynthRegisterB(getSynthRegisterB(0x01));
+						 if(i<48)
+						 {
+						 	  //setSynthRegisterB(getSynthRegisterB(i));
+							  
+							  printf("channels %d \n",i);
+							  printf("RSSI is %d",getAdcRssiValue(i));
+							  i++;
+						 } 
+						 else
+						 {
+						 	i = 0;
+						 }
 					 }
 	                 else if(Key.Status == KEYHOLD)
 	                 {					

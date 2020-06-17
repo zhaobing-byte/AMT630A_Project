@@ -13,8 +13,14 @@
 
 ************************************************************************/
 #include "channels.h"
+#include "systemConfig.h"
+#include "global.h"
+#include "AdcKeyPad.h"
+#include "AMT_Reg.h"
+#include "AMT_Drv.h"
+#include "Delay.h"
 
-
+#define RSSI_CH             CH1              //RX_RSSI_ADC 的值在通道1上采集
 
 static UINT CODE channelTable[] = {
 	
@@ -357,4 +363,11 @@ UINT8 getOrderedIndex(UINT8 index)
 const UINT8 getOrderedIndexFromIndex(UINT8 index) 
 {
     return channelIndexToOrderedIndex[index];
+}
+
+UINT getAdcRssiValue(UINT8 channel)
+{
+	setSynthRegisterB(getSynthRegisterB(channel));       //设置到相应频点，频点范围0~47共48个频道
+	DelayMs(26);
+	return POS_EnableChipAdc(RSSI_CH);
 }
