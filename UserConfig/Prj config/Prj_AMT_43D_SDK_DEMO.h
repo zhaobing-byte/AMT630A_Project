@@ -233,7 +233,7 @@
 <<<<<<<<<<<<<<<<<<<<<<  OSD 功能配置>>>>>>>>>>>>>>>>>>>>>>
 =========================================================*/ 
 //[OSD Icon Size And ScalerRatio]
-#define ICON_SIZE							SIZE_12X16   //SIZE_16X22
+#define ICON_SIZE							SIZE_16X22   //SIZE_16X22
 
 #if(ICON_SIZE == SIZE_12X16)
 #define ICON_SIZE_X                       	12    //ICON 水平像素点数

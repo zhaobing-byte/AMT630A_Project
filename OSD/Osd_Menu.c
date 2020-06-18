@@ -93,6 +93,173 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_LEFT PRESS");
+					XBYTE[0XFB05]=0X41;   //打开BLOCK0	
+					XBYTE[0XFB07]=0x20;   //设置BLOCK0 大小		   
+					XBYTE[0XFB08]=0x0D;							  
+					XBYTE[0XFB09]=0X00;   //OSD位置高位
+					XBYTE[0XFB0A]=0xC0;					
+					XBYTE[0XFB0B]=0X70;
+					
+					XBYTE[0XFB2A]=0X12; //前景颜色是调色盘2，背景颜色是调色盘1
+					
+					XBYTE[0XFB56]=0X0f;
+					XBYTE[0XFB57]=0X00;
+
+					
+					XBYTE[0XFB58]=0X00;
+					XBYTE[0XFB59]=0X0f;
+
+					XBYTE[0XFB0D]=0;// INDEX_RAM_ADD_H
+					
+					XBYTE[0XFB00]=0;// INDEX_RAM_ADD_L
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]= 0X00B;//A
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0x17;//M
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X1E;//T
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X07;//6
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X04;//3
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X01;//0
+				
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
+				
+					XBYTE[0XFB01]=0X0B;//A
+					
 				}
 		
 				if(g_UserInputInfo.Status == KEYHOLD)

@@ -350,7 +350,7 @@ const char *getName(UINT8 index)
 
     nameBuffer[0] = 65 + (encodedName >> 3);
     nameBuffer[1] = 48 + (encodedName & (255 >> (8 - 3))) + 1;
-    nameBuffer[2] = '\0';
+    nameBuffer[2] = '\0';											    
 
     return nameBuffer;
 }
