@@ -50,7 +50,6 @@ KeyMsgMap CODE SysKeyMsgMap[] =
 };
 #endif
 
-
 /***********************************************************
 *name:       GetIrMsg(void)
 *input:      void
@@ -204,7 +203,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 {
      UCHAR XDATA i,j;
 	 UCHAR XDATA KeyCmd  = NULL_CMD;
-	 
+	 static UINT8 k = 0;
 	 for(i = 0; i < sizeof(SysAdcKeyCmdMap)/sizeof(SysAdcKeyCmdMap[0]); i++)
 	 {
 	 	//printf("Key.KeyVal = %x",Key.KeyVal);
@@ -264,8 +263,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 			else
 			{
 			    if(Abs(SysAdcKeyCmdMap[i].KeyVal,Key.KeyVal) < KEY_OFFSET)
-				{  
-					 static UINT8 i = 0;  				 
+				{  				 
 				     g_ucPreChannel = (UCHAR)(readFlg(Key.KeyVal,AdcChannelBit)>>12);
 		             KeyCmd =  SysAdcKeyCmdMap[i].KeyCmd;
 
@@ -277,17 +275,16 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 }
 						 g_UserInputInfo.Status &=(~inputSpHold);
 						 g_UserInputInfo.Status &= (~inputHold);
-						 if(i<48)
+						  
+						 if(k<48)
 						 {
-						 	  //setSynthRegisterB(getSynthRegisterB(i));
-							  
-							  printf("channels %d \n",i);
-							  printf("RSSI is %d",getAdcRssiValue(i));
-							  i++;
+							  printf("channels %d \n",k);
+							  printf("RSSI is %d",getAdcRssiValue(k));
+							  k++;
 						 } 
 						 else
 						 {
-						 	i = 0;
+						 	k = 0;
 						 }
 					 }
 	                 else if(Key.Status == KEYHOLD)
@@ -301,8 +298,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						}
 						else if(Key.Holdtime == SpRepeatTime)
 						{
-						   g_UserInputInfo.Status =(inputSpHold |inputHold);
-						   printf("KEYHOLD!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");				
+						   g_UserInputInfo.Status =(inputSpHold |inputHold);			
 						}
 	                 }				  
 					 

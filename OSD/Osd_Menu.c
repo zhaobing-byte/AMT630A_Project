@@ -68,10 +68,11 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			    }
 			}
 		    #endif
+
 	     	break;
 			
 	   case MSG_UPK_LEFT:
-	   	    printfStr("MSG_UPK_LEFT");
+	   	   // printfStr("MSG_UPK_LEFT");
 	   	    SetSaveFlagEn();
 
 		    #ifdef BuzzerEn
@@ -86,10 +87,30 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			    }
 			}
 		    #endif
+
+			if(g_UserInputInfo.Type & KeyType)
+			{
+				if(g_UserInputInfo.Status == KEYPRESS)
+				{
+					printfStr("MSG_UPK_LEFT PRESS");
+				}
+		
+				if(g_UserInputInfo.Status == KEYHOLD)
+				{
+					printfStr("MSG_UPK_LEFT KEYHOLD");					
+				}
+
+				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
+				{
+					printfStr("MSG_UPK_LEFT KEYLONGPRESS");
+					g_UserInputInfo.Status &= (~inputSpHold);
+				}
+			}
+			
 	     	break;
 			
 	   case MSG_UPK_RIGHT:
-	   	    printfStr("MSG_UPK_RIGHT");
+	   	   // printfStr("MSG_UPK_RIGHT");
 	   	    SetSaveFlagEn();
 
 		    #ifdef BuzzerEn
@@ -104,10 +125,28 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			    }
 			}
 		    #endif
+			if(g_UserInputInfo.Type & KeyType)
+			{
+				if(g_UserInputInfo.Status == KEYPRESS)
+				{
+					printfStr("MSG_UPK_RIGHT PRESS");
+				}
+		
+				if(g_UserInputInfo.Status == KEYHOLD)
+				{
+					printfStr("MSG_UPK_RIGHT KEYHOLD");					
+				}
+
+				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
+				{
+					printfStr("MSG_UPK_RIGHT KEYLONGPRESS");
+					g_UserInputInfo.Status &= (~inputSpHold);
+				}
+			}
 	     	break;
 			
 	   case MSG_UPK_MENU:
-	   	    printfStr("MSG_UPK_MENU");
+	   	    //printfStr("MSG_UPK_MENU");
 
 			#ifdef BuzzerEn
 			if(g_UserInputInfo.Type & KeyType)
@@ -121,7 +160,24 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			    }
 			}
 		    #endif
+			if(g_UserInputInfo.Type & KeyType)
+			{
+				if(g_UserInputInfo.Status == KEYPRESS)
+				{
+					printfStr("MSG_UPK_MENU PRESS");
+				}
 			
+				if(g_UserInputInfo.Status == KEYHOLD)
+				{
+					printfStr("MSG_UPK_MENU KEYHOLD");
+				}
+				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
+				{
+					printfStr("MSG_UPK_MENU KEYLONGPRESS");
+					g_UserInputInfo.Status &= (~inputSpHold);
+				}
+				
+			}
 	     	break;
 			
 	   case MSG_UPK_VOLUME_INC:
@@ -297,7 +353,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 	     	break;
 			
 	   case MSG_UPK_POWER:
-	   	    printfStr("MSG_UPK_POWER");
+	   	   // printfStr("MSG_UPK_POWER");
 	   	    SetSaveFlagEn();
 
 			#ifdef BuzzerEn
@@ -309,13 +365,30 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			   }
 			}
             #endif
-
+			if(g_UserInputInfo.Type & KeyType)
+			{
+				if(g_UserInputInfo.Status == KEYPRESS)
+				{
+					printfStr("MSG_UPK_POWER PRESS");
+				}
+			
+				if(g_UserInputInfo.Status == KEYHOLD)
+				{
+					printfStr("MSG_UPK_POWER KEYHOLD");
+				}
+				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
+				{
+					printfStr("MSG_UPK_POWER KEYLONGPRESS");
+					g_UserInputInfo.Status &= (~inputSpHold);
+				}
+				
+			}
+			
 	   	    if((g_sysSetting.Car.status == CAR_PON_REVERSING) || (g_sysSetting.Car.status == CAR_POF_REVERSING))
 	   	    {
 	   	        return COMD_Nothing;
 	   	    }
 	     	break;
-			
 		default:
 			break;
      }
