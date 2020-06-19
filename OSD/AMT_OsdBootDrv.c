@@ -26,7 +26,6 @@
 #define PurpleColor    	0x0f08 //紫色:
 #define MalachiteColor 	0x08f0 //绿青:
 
-
 static UCHAR XDATA g_ucCurOsdBlockId = 0;
 OsdCtrlerType  XDATA g_OsdContrller;
 
@@ -243,7 +242,9 @@ void OsdCofigPalette(void)
 	ICON_CR6_L = WhiteColor&0xff;	
 	ICON_CR6_H = WhiteColor>>8;
 }
-void OsdConfigBitmapPalette(UCHAR *paletColor)
+
+//配置位图调色板
+void OsdConfigBitmapPalette(UCHAR *paletColor)     
 {
 	UCHAR XDATA i=0;
 	
@@ -319,6 +320,7 @@ UINT OsdGetStartIndexAddr(void)
 }
 
 
+//设置OSD Block窗口大小  块大小
 void OsdConfigWndSize(BYTE width, BYTE height)
 {
      //printfStr("OsdConfigWndSize");
@@ -567,6 +569,9 @@ void OsdConfigDispMode(UCHAR dispMode,UCHAR  mirrorMode)
 		   	  break;
 	  }
 }
+
+
+// 配置显示块的颜色
 void OsdConfigBlockColor(UCHAR fbColor)
 {
 	UINT XDATA wcIndexAddr = 0;
@@ -586,6 +591,8 @@ void OsdConfigBlockColor(UCHAR fbColor)
 	}
  }
 
+
+//设置块的位置 更具分辨率不同有所不同
 void OsdConfigWndPosition(UINT xPos, UINT yPos)
 {  
     //printfStr("OsdConfigWndPosition");
@@ -1034,6 +1041,10 @@ void OsdDrawHex(UCHAR starRow,UCHAR starLine,UCHAR fbColor,SWORD value)
 	OsdDrawStr(starRow,starLine,fbColor,HexDispValBuf);
 }
 
+
+// 绘制条状进度条
+//input starRow:行  starLine:列   length:进度条的长度        value:进度条的宽度
+//return: void
 void OsdDrawGuage(UCHAR starRow, UCHAR starLine, UCHAR length,UCHAR fbColor, UCHAR value)
 {    
      #if(ICON_SIZE == SIZE_12X16)

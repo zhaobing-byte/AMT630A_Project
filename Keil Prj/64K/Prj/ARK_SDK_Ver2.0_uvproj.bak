@@ -294,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\OSD;..\..\..\OSD\Logo;../../../Inc;../../../UserConfig;../../../ARKLib;../../../UserConfig/Prj config;..\..\..\LCD Pannels;..\..\..\LCD Pannels\LCD parameter;..\..\..\GetUserInput;..\..\..\GetUserInput\Ir;..\..\..\GetUserInput\Key;..\..\..\GetUserInput\GPIO;..\..\..\Device driver\AMT;..\..\..\Device driver\ArkChip;..\..\..\Device driver\Mcu;..\..\..\Device driver\Flash;..\..\..\Device driver\I2C;..\..\..\Device driver\E2prom;..\..\..\Device driver\WT5700;..\..\..\Device driver\Kt0803l;..\..\..\Device driver\BT;..\..\..\Debug;..\..\..\Device driver\SPI;..\..\..\Device driver\RX5808</IncludePath>
+              <IncludePath>..\..\..\OSD;..\..\..\OSD\Logo;../../../Inc;../../../UserConfig;../../../ARKLib;../../../UserConfig/Prj config;..\..\..\LCD Pannels;..\..\..\LCD Pannels\LCD parameter;..\..\..\GetUserInput;..\..\..\GetUserInput\Ir;..\..\..\GetUserInput\Key;..\..\..\GetUserInput\GPIO;..\..\..\Device driver\AMT;..\..\..\Device driver\ArkChip;..\..\..\Device driver\Mcu;..\..\..\Device driver\Flash;..\..\..\Device driver\I2C;..\..\..\Device driver\E2prom;..\..\..\Device driver\WT5700;..\..\..\Device driver\Kt0803l;..\..\..\Device driver\BT;..\..\..\Debug;..\..\..\Device driver\SPI;..\..\..\Device driver\RX5808;..\..\..\FPVGoggles</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -690,6 +690,16 @@
               <FileName>Debug.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Debug\Debug.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FPVGoggles</GroupName>
+          <Files>
+            <File>
+              <FileName>channels.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\FPVGoggles\channels.c</FilePath>
             </File>
           </Files>
         </Group>
