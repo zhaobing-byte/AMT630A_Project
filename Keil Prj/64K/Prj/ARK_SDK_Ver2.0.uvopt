@@ -1011,10 +1011,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>51</ColumnNumber>
+      <ColumnNumber>99</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>79</TopLine>
-      <CurrentLine>103</CurrentLine>
+      <TopLine>89</TopLine>
+      <CurrentLine>118</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -2783,9 +2783,9 @@
       <Documents>
         <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>51</ColumnNumber>
-          <TopLine>79</TopLine>
-          <CurrentLine>103</CurrentLine>
+          <ColumnNumber>99</ColumnNumber>
+          <TopLine>89</TopLine>
+          <CurrentLine>118</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_RootMenu.c</Name>

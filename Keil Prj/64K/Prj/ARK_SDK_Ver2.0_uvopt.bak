@@ -673,7 +673,7 @@
 
   <Group>
     <GroupName>OsdFont</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -708,7 +708,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -745,10 +745,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>42</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>25</TopLine>
+      <CurrentLine>35</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_RootMenu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_RootMenu.c</FilenameWithoutPath>
@@ -1011,10 +1011,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>203</ColumnNumber>
+      <ColumnNumber>51</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>252</TopLine>
-      <CurrentLine>252</CurrentLine>
+      <TopLine>79</TopLine>
+      <CurrentLine>103</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -1116,10 +1116,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>71</ColumnNumber>
+      <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>333</TopLine>
-      <CurrentLine>353</CurrentLine>
+      <CurrentLine>354</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\channels.c</PathWithFileName>
       <FilenameWithoutPath>channels.c</FilenameWithoutPath>
@@ -2779,8 +2779,20 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>..\..\..\OSD\Osd_Menu.c</Name>
+          <ColumnNumber>51</ColumnNumber>
+          <TopLine>79</TopLine>
+          <CurrentLine>103</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\OSD\Osd_RootMenu.c</Name>
+          <ColumnNumber>42</ColumnNumber>
+          <TopLine>25</TopLine>
+          <CurrentLine>35</CurrentLine>
+        </Doc>
         <Doc>
           <Name>..\..\..\DEVICE DRIVER\AMT\AMT_DRV.H</Name>
           <ColumnNumber>0</ColumnNumber>
@@ -2807,9 +2819,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGoggles\channels.c</Name>
-          <ColumnNumber>71</ColumnNumber>
+          <ColumnNumber>26</ColumnNumber>
           <TopLine>333</TopLine>
-          <CurrentLine>353</CurrentLine>
+          <CurrentLine>354</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Global.c</Name>
@@ -2900,12 +2912,6 @@
           <ColumnNumber>56</ColumnNumber>
           <TopLine>17</TopLine>
           <CurrentLine>49</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>203</ColumnNumber>
-          <TopLine>252</TopLine>
-          <CurrentLine>252</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Interrupt.c</Name>
