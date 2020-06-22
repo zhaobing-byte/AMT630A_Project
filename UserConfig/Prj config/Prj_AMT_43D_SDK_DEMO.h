@@ -208,7 +208,7 @@
 
 #define KEY_OFFSET           			0X0A         //按键的偏移量
 #define RepeatTime           			0X15        //连续按键响应时间
-#define SpRepeatTime         			0X50        //特殊长按转义命令
+#define SpRepeatTime         			0X20        //特殊长按转义命令
 #endif//#ifdef KeyDetectEn 
 
 

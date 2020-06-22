@@ -109,7 +109,7 @@ void  SignalMsgHandle(MSG curMsg)
 
 		  if(IsPowerOn())
 		  {
-		     MenuProcessKey(COMD_ShowSource);
+		     //MenuProcessKey(COMD_ShowSource);
 		  }
     }
 

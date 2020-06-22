@@ -30,5 +30,5 @@ char *getName(UINT8 index);
 UINT8 getOrderedIndex(UINT8 index);	
 UINT8 getOrderedIndexFromIndex(UINT8 index);				   
 UINT getAdcRssiValue(UINT8 channel);
-
+//int map(float Oxy, float Omin, float Omax, float Nmin, float Nmax)
 #endif

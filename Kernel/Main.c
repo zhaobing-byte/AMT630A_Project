@@ -31,7 +31,9 @@
 #include "AMT_Mcu.h"
 		  
 void main(void)																 										   
-{  	
+{
+	UINT8 RSSI;
+	UINT16 loop_count = 0;
     DisableWatchdog();
 		
 	InitSystem();  
@@ -118,7 +120,19 @@ void main(void)
 			MiscMsgHandle(curMsg);
 			curMsg = MSG_NULL;
 		}
-
+		loop_count++;
+		if(loop_count > 850)
+		{
+			RSSI = (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
+			if(RSSI >= 99)
+			{	
+				RSSI = 99;
+			}
+			OsdDrawNum(1,15,GREEN,RSSI);
+			OsdDrawStr(1,14,GREEN," \xAF");
+			OsdDrawGuage(3,1,99,GREEN,RSSI);
+			loop_count = 0;
+		}
 	}
 	return;
 }

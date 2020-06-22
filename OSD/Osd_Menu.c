@@ -21,16 +21,17 @@
 #include "Osd_MenuTbl.h"
 #include "IrMap.h"
 #include "Ir.h"
+#include "channels.h"
 
 
 #if OSD_STYLE_TYPE != OSD_STYLE_ARK
   "当前OSD风格不匹配，请设置为ARK OSD风格。"
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
 
+bit MENU_KEYPRESS_FLAG = 0;
 UCHAR KeyMsgProcess(MSG curMsg)
 {
      UCHAR ucComd = COMD_Nothing;
-	 
      switch(curMsg)
      {
 	   case MSG_UPK_UP:
@@ -92,70 +93,6 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_LEFT PRESS");
-	
-					XBYTE[0XFB05]=0X41;   //打开BLOCK0	
-					OsdBlockEnable(0);                 //使能选择的块
-					OsdConfigWndSize(0x17,0x0A);       //设置块大小	
-					OsdConfigWndPosition(200,100);     //设置块的位置
-				    XBYTE[0XFB2A]=0X12; //前景颜色是调色盘2，背景颜色是调色盘1
-					XBYTE[0XFB56]=0X00; 
-					XBYTE[0XFB57]=0X00;     //背景色
-					//OsdDrawGuage(400,200,100,COLOR(GREEN,BLACK),10);
-				//	OsdDrawStr(1,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
-				//	OsdDrawStr(1,1,GREEN,"BIND:E");
-					OsdDrawStr(0,14,GREEN,"\xAF 5865");
-					OsdDrawStr(3,3,GREEN,"\xAF");
-			    	OsdDrawStr(3,4,GREEN,"1 2 3 4 5 6 7 8");
-					OsdDrawStr(4,2,GREEN,"A\xAF");
-					OsdDrawStr(4,1,GREEN,"+");
-					OsdDrawStr(5,2,GREEN,"B\xAF");
-					OsdDrawStr(6,2,GREEN,"C\xAF");
-					OsdDrawStr(7,2,GREEN,"D\xAF");
-					OsdDrawStr(8,2,GREEN,"E\xAF");
-					OsdDrawStr(9,2,GREEN,"F\xAF");
-					//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
-					OsdDrawGuage(2,1,150,COLOR(GREEN,BLACK),10);
-					OsdDrawStr(1,1,GREEN,"\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83\x83");
-					OsdDrawStr(9,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
-					
-					//XBYTE[0XFB56]=0X00; 
-					//XBYTE[0XFB57]=0X00;     //背景色
-				
-//					XBYTE[0XFB58]=0X0f;     //前景色
-//					XBYTE[0XFB59]=0Xff;
-
-//					XBYTE[0XFB0D]=0;// INDEX_RAM_ADD_H
-//					
-//					XBYTE[0XFB00]=0;// INDEX_RAM_ADD_L
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]= 0X00B;//A
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0x17;//M
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0X1E;//T
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0X07;//6
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0X04;//3
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0X01;//0
-//				
-//					XBYTE[0XFB0E]=0;// INDEX_RAM_DATA_H
-//				
-//					XBYTE[0XFB01]=0X0B;//A
-					
 				}
 		
 				if(g_UserInputInfo.Status == KEYHOLD)
@@ -227,7 +164,40 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			{
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
-					printfStr("MSG_UPK_MENU PRESS");
+				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
+					if(MENU_KEYPRESS_FLAG)
+					{
+						printfStr("MSG_UPK_MENU PRESS");
+						XBYTE[0XFB05]=0X41;                //打开BLOCK0	
+						OsdBlockEnable(0);                 //使能选择的块
+											OsdConfigWndSize(0x14,0x0D);       //设置块大小	
+					  	OsdConfigWndPosition(260,100);     //设置块的位置
+					    XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
+					    XBYTE[0XFB56]=0X00; 
+					  	XBYTE[0XFB57]=0X00;                //背景色
+					  	OsdDrawStr(1,1,GREEN,"BAND:");
+					  	OsdDrawStr(1,6,GREEN,getName(40));
+					  	OsdDrawStr(1,8,GREEN," ");
+					  	OsdDrawNum(1,9,GREEN,getFrequency(40));
+					  	//OsdDrawNum(1,15,GREEN,99);
+					  	//OsdDrawStr(1,14,GREEN," \xAF");
+					  	OsdDrawStr(4,3,GREEN,"\xAF");
+					  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
+					  	OsdDrawStr(5,2,GREEN,"A\xAF");
+					  	OsdDrawStr(5,1,GREEN,"+");
+					  	OsdDrawStr(6,2,GREEN,"B\xAF");
+					  	OsdDrawStr(7,2,GREEN,"E\xAF");
+					  	OsdDrawStr(8,2,GREEN,"F\xAF");
+					  	OsdDrawStr(9,2,GREEN,"R\xAF");
+					  	OsdDrawStr(10,2,GREEN,"L\xAF");
+					  	//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
+					  	 OsdDrawGuage(3,1,99,COLOR(GREEN,BLACK),99);
+					  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+					}
+					else
+					{
+						 OsdBlockHide(0);
+					}
 				}
 			
 				if(g_UserInputInfo.Status == KEYHOLD)

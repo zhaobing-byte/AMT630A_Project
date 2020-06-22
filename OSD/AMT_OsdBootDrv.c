@@ -964,10 +964,10 @@ void OsdDrawNum(UCHAR starRow,UCHAR starLine,UCHAR fbColor,SWORD value)
      #if Len == 4
 	 if(value >=0)
 	 {
-        DispValBuf[0]= ' ';
-		DispValBuf[1]=DatBuf[tmpvalue/100];       
-		DispValBuf[2]=DatBuf[(tmpvalue%100)/10];
-		DispValBuf[3]=DatBuf[((tmpvalue%100)%10)];
+       DispValBuf[0]=DatBuf[tmpvalue/1000];       
+	   DispValBuf[1]=DatBuf[(tmpvalue%1000)/100];
+	   DispValBuf[2]=DatBuf[((tmpvalue%1000)%100)/10];
+	   DispValBuf[3]=DatBuf[(((tmpvalue%1000)%100)%10)%10];
 	 }
 	 else
 	 {

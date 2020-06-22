@@ -21,7 +21,7 @@
 #include "Delay.h"
 
 #define RSSI_CH             CH1              //RX_RSSI_ADC 的值在通道1上采集
-
+#define USE_LBAND  
 static UINT CODE channelTable[] = {
 	
 	#define _CHANNEL_REG_FLO(f) ((f-479)/2)
@@ -330,6 +330,20 @@ static UINT8 CODE channelIndexToOrderedIndex[] = {
     #endif
 };
 
+/*************************
+*函数名字：map 
+*函数功能：数的区间映射
+*参    数：Oxy：需要映射的数  Omin：映射前区间的最小值 Omax：映射前区间的最大值 
+							  Nmin: 映射后区间的最小值 Nmax：映射后区间的最小值
+*返 回 值：Nxy:映射后的数
+**************************/
+//int map(float Oxy, float Omin, float Omax, float Nmin, float Nmax)
+//{
+//	int Nxy;
+//	Nxy = (Nmax-Nmin)/(Omax-Omin)*(Oxy-Omin)+Nmin;
+//	return Nxy;
+//}
+
 const UINT getSynthRegisterB(UINT8 index) 
 {
 	return channelTable[index];
@@ -367,7 +381,14 @@ const UINT8 getOrderedIndexFromIndex(UINT8 index)
 
 UINT getAdcRssiValue(UINT8 channel)
 {
+	UINT16 temp;
 	setSynthRegisterB(getSynthRegisterB(channel));       //设置到相应频点，频点范围0~47共48个频道
-	DelayMs(26);
-	return POS_EnableChipAdc(RSSI_CH);
+	DelayMs(25);
+	temp = (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
+	if(temp > 99)
+	{
+		temp = 99;
+	}
+	return temp;
+	
 }

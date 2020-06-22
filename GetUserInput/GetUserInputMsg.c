@@ -279,6 +279,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 if(k<48)
 						 {
 							  printf("channels %d \n",k);
+							 // printf("RSSI is %d",/*((99.0)/(1900.0-500.0)*(*/getAdcRssiValue(k/*)-500)*/));
 							  printf("RSSI is %d",getAdcRssiValue(k));
 							  k++;
 						 } 
