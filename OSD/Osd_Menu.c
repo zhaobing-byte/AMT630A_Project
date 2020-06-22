@@ -29,6 +29,10 @@
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
 
 bit MENU_KEYPRESS_FLAG = 0;
+UINT8 rf_tab_line = 0;   //列
+UINT8 rf_tab_row = 0;    //行
+
+
 UCHAR KeyMsgProcess(MSG curMsg)
 {
      UCHAR ucComd = COMD_Nothing;
@@ -93,6 +97,15 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_LEFT PRESS");
+					if(MENU_KEYPRESS_FLAG)
+					{
+						rf_tab_row++;
+						if(rf_tab_row > 5)
+						{
+							rf_tab_row = 0;
+						}
+						setSynthRegisterB(getSynthRegisterB(getRFTabRow()*8+getRFTabLine())); 
+					}
 				}
 		
 				if(g_UserInputInfo.Status == KEYHOLD)
@@ -130,6 +143,15 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_RIGHT PRESS");
+					if(MENU_KEYPRESS_FLAG)
+					{
+						rf_tab_line++;
+						if(rf_tab_line > 7)
+						{
+							rf_tab_line = 0;
+						}
+						setSynthRegisterB(getSynthRegisterB(getRFTabRow()*8+getRFTabLine())); 
+					}
 				}
 		
 				if(g_UserInputInfo.Status == KEYHOLD)
@@ -165,39 +187,39 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
-					if(MENU_KEYPRESS_FLAG)
-					{
-						printfStr("MSG_UPK_MENU PRESS");
-						XBYTE[0XFB05]=0X41;                //打开BLOCK0	
-						OsdBlockEnable(0);                 //使能选择的块
-											OsdConfigWndSize(0x14,0x0D);       //设置块大小	
-					  	OsdConfigWndPosition(260,100);     //设置块的位置
-					    XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
-					    XBYTE[0XFB56]=0X00; 
-					  	XBYTE[0XFB57]=0X00;                //背景色
-					  	OsdDrawStr(1,1,GREEN,"BAND:");
-					  	OsdDrawStr(1,6,GREEN,getName(40));
-					  	OsdDrawStr(1,8,GREEN," ");
-					  	OsdDrawNum(1,9,GREEN,getFrequency(40));
-					  	//OsdDrawNum(1,15,GREEN,99);
-					  	//OsdDrawStr(1,14,GREEN," \xAF");
-					  	OsdDrawStr(4,3,GREEN,"\xAF");
-					  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
-					  	OsdDrawStr(5,2,GREEN,"A\xAF");
-					  	OsdDrawStr(5,1,GREEN,"+");
-					  	OsdDrawStr(6,2,GREEN,"B\xAF");
-					  	OsdDrawStr(7,2,GREEN,"E\xAF");
-					  	OsdDrawStr(8,2,GREEN,"F\xAF");
-					  	OsdDrawStr(9,2,GREEN,"R\xAF");
-					  	OsdDrawStr(10,2,GREEN,"L\xAF");
-					  	//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
-					  	 OsdDrawGuage(3,1,99,COLOR(GREEN,BLACK),99);
-					  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
-					}
-					else
-					{
-						 OsdBlockHide(0);
-					}
+//					if(MENU_KEYPRESS_FLAG)
+//					{
+//						printfStr("MSG_UPK_MENU PRESS");
+//						XBYTE[0XFB05]=0X41;                //打开BLOCK0	
+//						OsdBlockEnable(0);                 //使能选择的块
+//						OsdConfigWndSize(0x14,0x0D);       //设置块大小	
+//					  	OsdConfigWndPosition(260,100);     //设置块的位置
+//					    XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
+//					    XBYTE[0XFB56]=0X00; 
+//					  	XBYTE[0XFB57]=0X00;                //背景色
+//					  	OsdDrawStr(1,1,GREEN,"BAND:");
+//					  	OsdDrawStr(1,6,GREEN,getName(40));
+//					  	OsdDrawStr(1,8,GREEN," ");
+//					  	OsdDrawNum(1,9,GREEN,getFrequency(40));
+//					  	//OsdDrawNum(1,15,GREEN,99);
+//					  	//OsdDrawStr(1,14,GREEN," \xAF");
+//					  	OsdDrawStr(4,3,GREEN,"\xAF");
+//					  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
+//					  	OsdDrawStr(5,2,GREEN,"A\xAF");
+//					  	OsdDrawStr(5,1,GREEN,"+");
+//					  	OsdDrawStr(6,2,GREEN,"B\xAF");
+//					  	OsdDrawStr(7,2,GREEN,"E\xAF");
+//					  	OsdDrawStr(8,2,GREEN,"F\xAF");
+//					  	OsdDrawStr(9,2,GREEN,"R\xAF");
+//					  	OsdDrawStr(10,2,GREEN,"L\xAF");
+//					  	//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
+//					  	 OsdDrawGuage(3,1,99,COLOR(GREEN,BLACK),99);
+//					  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+//					}
+//					else
+//					{
+//						 OsdBlockHide(0);
+//					}
 				}
 			
 				if(g_UserInputInfo.Status == KEYHOLD)
@@ -429,6 +451,21 @@ UCHAR KeyMsgProcess(MSG curMsg)
      //按键OSD处理:
 	 //ucComd = FindComdInCurMenuItem(curMsg);	 
 	 return ucComd;
+}
+
+bit get_menu_status(void)
+{
+	return MENU_KEYPRESS_FLAG;
+}
+
+UINT8 getRFTabRow(void)
+{
+	return rf_tab_row;
+}
+
+UINT getRFTabLine(void)
+{
+	return rf_tab_line;
 }
 
 /***********************************************************

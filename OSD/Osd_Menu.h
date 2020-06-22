@@ -344,4 +344,9 @@ _OSD_MENU_EXTERN_ void ResetMenuIndex(void);
 _OSD_MENU_EXTERN_ void SetMenuIndex(UCHAR menuPage);
 _OSD_MENU_EXTERN_ BOOL ExectComd(ComdType OpratComd);
 
+bit get_menu_status(void);
+UINT8 getRFTabRow(void);
+UINT getRFTabLine(void);
+
+
 #endif

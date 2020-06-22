@@ -203,7 +203,7 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 {
      UCHAR XDATA i,j;
 	 UCHAR XDATA KeyCmd  = NULL_CMD;
-	 static UINT8 k = 0;
+	// static UINT8 k = 0;
 	 for(i = 0; i < sizeof(SysAdcKeyCmdMap)/sizeof(SysAdcKeyCmdMap[0]); i++)
 	 {
 	 	//printf("Key.KeyVal = %x",Key.KeyVal);
@@ -276,17 +276,17 @@ UCHAR POS_TransferAdcKeyCmd(KeyInfor Key)
 						 g_UserInputInfo.Status &=(~inputSpHold);
 						 g_UserInputInfo.Status &= (~inputHold);
 						  
-						 if(k<48)
-						 {
-							  printf("channels %d \n",k);
+						// if(k<48)
+						// {
+							  //printf("channels %d \n",k);
 							 // printf("RSSI is %d",/*((99.0)/(1900.0-500.0)*(*/getAdcRssiValue(k/*)-500)*/));
-							  printf("RSSI is %d",getAdcRssiValue(k));
-							  k++;
-						 } 
-						 else
-						 {
-						 	k = 0;
-						 }
+							  //printf("RSSI is %d",getAdcRssiValue(k));
+							  //k++;
+						// } 
+						// else
+						// {
+						// 	k = 0;
+						 //}
 					 }
 	                 else if(Key.Status == KEYHOLD)
 	                 {					
