@@ -22,7 +22,7 @@
 #include "IrMap.h"
 #include "Ir.h"
 #include "channels.h"
-
+#include "Delay.h"
 
 #if OSD_STYLE_TYPE != OSD_STYLE_ARK
   "当前OSD风格不匹配，请设置为ARK OSD风格。"
@@ -31,7 +31,8 @@
 bit MENU_KEYPRESS_FLAG = 0;
 UINT8 rf_tab_line = 0;   //列
 UINT8 rf_tab_row = 0;    //行
-
+UINT8 cursor_line = 0,z=0;
+static UINT8 RSSI_MAX=0,MAX_RSSI_CH_FLG=0,RSSI = 0,k=0;
 
 UCHAR KeyMsgProcess(MSG curMsg)
 {
@@ -145,11 +146,14 @@ UCHAR KeyMsgProcess(MSG curMsg)
 					printfStr("MSG_UPK_RIGHT PRESS");
 					if(MENU_KEYPRESS_FLAG)
 					{
+					    cursor_line = rf_tab_line + z;
 						rf_tab_line++;
 						if(rf_tab_line > 7)
 						{
 							rf_tab_line = 0;
 						}
+						cursor_line = rf_tab_line + z;
+						z++;
 						setSynthRegisterB(getSynthRegisterB(getRFTabRow()*8+getRFTabLine())); 
 					}
 				}
@@ -187,44 +191,28 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
-//					if(MENU_KEYPRESS_FLAG)
-//					{
-//						printfStr("MSG_UPK_MENU PRESS");
-//						XBYTE[0XFB05]=0X41;                //打开BLOCK0	
-//						OsdBlockEnable(0);                 //使能选择的块
-//						OsdConfigWndSize(0x14,0x0D);       //设置块大小	
-//					  	OsdConfigWndPosition(260,100);     //设置块的位置
-//					    XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
-//					    XBYTE[0XFB56]=0X00; 
-//					  	XBYTE[0XFB57]=0X00;                //背景色
-//					  	OsdDrawStr(1,1,GREEN,"BAND:");
-//					  	OsdDrawStr(1,6,GREEN,getName(40));
-//					  	OsdDrawStr(1,8,GREEN," ");
-//					  	OsdDrawNum(1,9,GREEN,getFrequency(40));
-//					  	//OsdDrawNum(1,15,GREEN,99);
-//					  	//OsdDrawStr(1,14,GREEN," \xAF");
-//					  	OsdDrawStr(4,3,GREEN,"\xAF");
-//					  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
-//					  	OsdDrawStr(5,2,GREEN,"A\xAF");
-//					  	OsdDrawStr(5,1,GREEN,"+");
-//					  	OsdDrawStr(6,2,GREEN,"B\xAF");
-//					  	OsdDrawStr(7,2,GREEN,"E\xAF");
-//					  	OsdDrawStr(8,2,GREEN,"F\xAF");
-//					  	OsdDrawStr(9,2,GREEN,"R\xAF");
-//					  	OsdDrawStr(10,2,GREEN,"L\xAF");
-//					  	//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
-//					  	 OsdDrawGuage(3,1,99,COLOR(GREEN,BLACK),99);
-//					  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
-//					}
-//					else
-//					{
-//						 OsdBlockHide(0);
-//					}
 				}
 			
 				if(g_UserInputInfo.Status == KEYHOLD)
 				{
 					printfStr("MSG_UPK_MENU KEYHOLD");
+					for(k = 0 ; k < 48 ; k++)
+					{
+						setSynthRegisterB(getSynthRegisterB(k));
+						DelayMs(20);
+						RSSI =  (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
+						if(RSSI >= RSSI_MAX)
+						{
+							RSSI_MAX = RSSI;
+							MAX_RSSI_CH_FLG = k;
+						} 
+					}
+					printf("RSSI : %d",RSSI_MAX);
+					setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	
+					rf_tab_row= MAX_RSSI_CH_FLG / 8;
+					rf_tab_line = MAX_RSSI_CH_FLG % 8;
+					RSSI_MAX = 0;
+					MAX_RSSI_CH_FLG = 0;
 				}
 				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
 				{
@@ -466,6 +454,11 @@ UINT8 getRFTabRow(void)
 UINT getRFTabLine(void)
 {
 	return rf_tab_line;
+}
+
+UINT8 get_cursor_line(void)
+{
+	return cursor_line;
 }
 
 /***********************************************************

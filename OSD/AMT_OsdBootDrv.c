@@ -991,12 +991,12 @@ void OsdDrawNum(UCHAR starRow,UCHAR starLine,UCHAR fbColor,SWORD value)
 	 #if Len == 4
 	 if(value >= 0)
 	 {
-		 if(0==(tmpvalue/100))
+		 if(0== (tmpvalue/1000))
 		 {
-		    DispValBuf[1]  = ' ';
-		    if(0==((tmpvalue%100)/10))
+		    DispValBuf[0]  = ' ';
+		    if(0==((tmpvalue%1000)/100))
 		   	{
-		   	   	DispValBuf[2]  = ' ';
+		   	   	DispValBuf[1]  = ' ';
 		   	}
 		 }
 		 

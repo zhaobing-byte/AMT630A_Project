@@ -34,6 +34,7 @@ void main(void)
 {
 	UINT8 RSSI;
 	UINT16 loop_count = 0;
+	UINT8 i= 0;
     DisableWatchdog();
 		
 	InitSystem();  
@@ -141,32 +142,35 @@ void main(void)
 				OsdDrawStr(1,14,GREEN," \xAF");
 				OsdDrawGuage(3,1,99,GREEN,RSSI);
 				OsdDrawStr(1,1,GREEN,"BAND:");
-				OsdDrawStr(1,6,GREEN,getName(getRFTabRow()*8+getRFTabLine()-1));
+				OsdDrawStr(1,6,GREEN,getName(getRFTabRow()*8+getRFTabLine()));
 				OsdDrawStr(1,8,GREEN," ");
-				OsdDrawNum(1,9,GREEN,getFrequency(getRFTabRow()*8+getRFTabLine()-1));
-				//OsdDrawNum(1,15,GREEN,99);
-				//OsdDrawStr(1,14,GREEN," \xAF");
+				OsdDrawNum(1,9,GREEN,getFrequency(getRFTabRow()*8+getRFTabLine()));
 			  	OsdDrawStr(4,3,GREEN,"\xAF");
 			  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
 			  	OsdDrawStr(5,2,GREEN,"A\xAF");
 				
-			  	OsdDrawStr(getRFTabRow()+4,1,GREEN,"+");
-				if(getRFTabRow() == 1)
-				{
-					OsdDrawStr(getRFTabRow()+4+5,1,GREEN," ");
-				}
-				//else
-			//	{
-					OsdDrawStr(getRFTabRow()+3,1,GREEN," ");
-			//	}
+				OsdDrawStr(5,1,GREEN," ");
+				OsdDrawStr(6,1,GREEN," ");
+				OsdDrawStr(7,1,GREEN," ");
+				OsdDrawStr(8,1,GREEN," ");
+				OsdDrawStr(9,1,GREEN," ");
+				OsdDrawStr(10,1,GREEN," ");
+				OsdDrawStr(getRFTabRow()+5,1,GREEN,"+");
+				
 			  	OsdDrawStr(6,2,GREEN,"B\xAF");
 			  	OsdDrawStr(7,2,GREEN,"E\xAF");
 			  	OsdDrawStr(8,2,GREEN,"F\xAF");
 			  	OsdDrawStr(9,2,GREEN,"R\xAF");
 			  	OsdDrawStr(10,2,GREEN,"L\xAF");
-			  	//OsdDrawStr(2,1,GREEN,"\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6\xB6");
-			  	//OsdDrawGuage(3,1,99,COLOR(GREEN,BLACK),99);
 			  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+				if(1 == get_cursor_line())
+				{
+					//OsdDrawStr(12,get_cursor_line()+3,GREEN,"+");
+				}
+				else
+				{
+					//OsdDrawStr(12,get_cursor_line()+5,GREEN,"+");
+				}
 				loop_count = 0;
 			}
 			else
