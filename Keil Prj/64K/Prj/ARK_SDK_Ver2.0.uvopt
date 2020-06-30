@@ -465,10 +465,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>80</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>119</TopLine>
-      <CurrentLine>152</CurrentLine>
+      <TopLine>124</TopLine>
+      <CurrentLine>143</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -1011,10 +1011,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>94</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>176</TopLine>
-      <CurrentLine>194</CurrentLine>
+      <TopLine>194</TopLine>
+      <CurrentLine>215</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -2782,10 +2782,16 @@
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
+          <Name>..\..\..\Kernel\Main.c</Name>
+          <ColumnNumber>80</ColumnNumber>
+          <TopLine>124</TopLine>
+          <CurrentLine>143</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>94</ColumnNumber>
-          <TopLine>176</TopLine>
-          <CurrentLine>194</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>194</TopLine>
+          <CurrentLine>215</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_RootMenu.c</Name>
@@ -2870,12 +2876,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>172</TopLine>
           <CurrentLine>184</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>119</TopLine>
-          <CurrentLine>152</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\DEVICE DRIVER\AMT\AMT_DRV.C</Name>

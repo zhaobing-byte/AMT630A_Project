@@ -1234,7 +1234,8 @@ void InitOSD(void)
 	LoadMulCharToFontram(170,3,AMT630Font_Char);
 	#elif(ICON_SIZE == SIZE_16X22)
 	LoadMulCharToFontram(0,3,FontRam_Char);
-	#endif
+	//OsdWriteCharToFontram(0, FontRam_Char);
+	#endif   
 }
 
 

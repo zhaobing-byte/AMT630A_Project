@@ -140,6 +140,7 @@ void main(void)
 				XBYTE[0XFB57]=0X00;                //±³¾°É«
 				OsdDrawNum(1,15,GREEN,RSSI);
 				OsdDrawStr(1,14,GREEN," \xAF");
+				OsdDrawStr(2,1,GREEN,"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1");
 				OsdDrawGuage(3,1,99,GREEN,RSSI);
 				OsdDrawStr(1,1,GREEN,"BAND:");
 				OsdDrawStr(1,6,GREEN,getName(getRFTabRow()*8+getRFTabLine()));
@@ -147,8 +148,7 @@ void main(void)
 				OsdDrawNum(1,9,GREEN,getFrequency(getRFTabRow()*8+getRFTabLine()));
 			  	OsdDrawStr(4,3,GREEN,"\xAF");
 			  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
-			  	OsdDrawStr(5,2,GREEN,"A\xAF");
-				
+			  	OsdDrawStr(5,2,GREEN,"A\xAF");	
 				OsdDrawStr(5,1,GREEN," ");
 				OsdDrawStr(6,1,GREEN," ");
 				OsdDrawStr(7,1,GREEN," ");
@@ -165,11 +165,11 @@ void main(void)
 			  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
 				if(1 == get_cursor_line())
 				{
-					//OsdDrawStr(12,get_cursor_line()+3,GREEN,"+");
+					OsdDrawStr(11,get_cursor_line()+3,GREEN,"&\0");
 				}
 				else
 				{
-					//OsdDrawStr(12,get_cursor_line()+5,GREEN,"+");
+					OsdDrawStr(11,get_cursor_line()+5,GREEN,"&\0");
 				}
 				loop_count = 0;
 			}

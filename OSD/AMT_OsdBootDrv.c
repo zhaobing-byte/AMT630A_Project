@@ -685,8 +685,8 @@ void OsdDrawStr(UCHAR starRow,UCHAR starLine,UCHAR fbColor, UCHAR *str)
 	        INDEX_RAM_DATA_H = FontRamMap[str[strOffset]] >> 8;  
 			INDEX_RAM_DATA_L = FontRamMap[str[strOffset]] & 0xff; 
 		   
-            //printf("str[strOffset] = %x", str[strOffset]);
-			//printf("FontRamMap[str[strOffset]] = %x", FontRamMap[str[strOffset]]);
+            printf("str[strOffset] = %x", str[strOffset]);
+			printf("FontRamMap[str[strOffset]] = %x", FontRamMap[str[strOffset]]);
 
 	    }
 	 	else//×ÖÄ¸±í
