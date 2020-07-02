@@ -281,11 +281,11 @@ typedef struct	_OsdSettingInfo	              //OSD参数
 {
     UCHAR defLanguage;
 	UCHAR curlanguage;		    //OSD语言
-	UINT  dispTime;          //OSD消失时间
-	UINT  storageTime;      //OSD记忆数据时间
-	UCHAR alph;             //OSD透明度 
-	CHAR xOffset;	        //OSD菜单水平偏移
-	CHAR yOffset;         //OSD菜单垂直偏移
+	UINT  dispTime;             //OSD消失时间
+	UINT  storageTime;          //OSD记忆数据时间
+	UCHAR alph;                 //OSD透明度 
+	CHAR xOffset;	            //OSD菜单水平偏移
+	CHAR yOffset;               //OSD菜单垂直偏移
 }OsdInfoType;
 
 typedef struct	_VideoSettingInfo	              
@@ -496,8 +496,8 @@ _GLOBAL_EXTERN_  UCHAR XDATA g_ucStableTime;
 #define ClrCarReversingEn()  		(g_bCarReverseFlg = DISABLE)  
 #define IsCarReversingEn()   		(g_bCarReverseFlg)   
 
-//#define IsSignalOk()          	 	((COLOR_SYS_TV_ACTIVE &_BIT1)>>1)
-#define IsSignalOk()          	 	((COLOR_SYS_TV_ACTIVE &_BIT2)>>2)
+#define IsSignalOk()          	 	((COLOR_SYS_TV_ACTIVE &_BIT1)>>1)
+//#define IsSignalOk()          	 	((COLOR_SYS_TV_ACTIVE &_BIT2)>>2)
 #define IsHlockOk()     			((COLOR_SYS_TV_ACTIVE &_BIT1)>>1)
 #define IsVlockOk()     			((COLOR_SYS_TV_ACTIVE &_BIT2)>>2)
 #define GetSignalSys()          	((VIDEO_LINE_625_525 & _BIT2)>>2)

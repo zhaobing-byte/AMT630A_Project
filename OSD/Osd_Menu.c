@@ -31,7 +31,7 @@
 bit MENU_KEYPRESS_FLAG = 0;
 UINT8 rf_tab_line = 0;   //列
 UINT8 rf_tab_row = 0;    //行
-UINT8 cursor_line = 0,z=0;
+
 static UINT8 RSSI_MAX=0,MAX_RSSI_CH_FLG=0,RSSI = 0,k=0;
 
 UCHAR KeyMsgProcess(MSG curMsg)
@@ -105,7 +105,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 						{
 							rf_tab_row = 0;
 						}
-						setSynthRegisterB(getSynthRegisterB(getRFTabRow()*8+getRFTabLine())); 
+						setSynthRegisterB(getSynthRegisterB(rf_tab_row*8+rf_tab_line)); 
 					}
 				}
 		
@@ -146,15 +146,12 @@ UCHAR KeyMsgProcess(MSG curMsg)
 					printfStr("MSG_UPK_RIGHT PRESS");
 					if(MENU_KEYPRESS_FLAG)
 					{
-					    cursor_line = rf_tab_line + z;
 						rf_tab_line++;
 						if(rf_tab_line > 7)
 						{
 							rf_tab_line = 0;
 						}
-						cursor_line = rf_tab_line + z;
-						z++;
-						setSynthRegisterB(getSynthRegisterB(getRFTabRow()*8+getRFTabLine())); 
+						setSynthRegisterB(getSynthRegisterB(rf_tab_row*8+rf_tab_line)); 
 					}
 				}
 		
@@ -172,8 +169,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 	     	break;
 			
 	   case MSG_UPK_MENU:
-	   	    //printfStr("MSG_UPK_MENU");
-
+	   	    printfStr("MSG_UPK_MENU");
 			#ifdef BuzzerEn
 			if(g_UserInputInfo.Type & KeyType)
 			{
@@ -193,7 +189,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
 				}
 			
-				if(g_UserInputInfo.Status == KEYHOLD)
+				if(g_UserInputInfo.Status == KEYHOLD)    //长按menu 按键搜索频点
 				{
 					printfStr("MSG_UPK_MENU KEYHOLD");
 					for(k = 0 ; k < 48 ; k++)
@@ -446,20 +442,11 @@ bit get_menu_status(void)
 	return MENU_KEYPRESS_FLAG;
 }
 
-UINT8 getRFTabRow(void)
+UINT8 getFreNumber(void)
 {
-	return rf_tab_row;
+	return rf_tab_row*8+rf_tab_line;
 }
 
-UINT getRFTabLine(void)
-{
-	return rf_tab_line;
-}
-
-UINT8 get_cursor_line(void)
-{
-	return cursor_line;
-}
 
 /***********************************************************
 *name:     	 FindComdInCurMenuItem(MSG curMsg)

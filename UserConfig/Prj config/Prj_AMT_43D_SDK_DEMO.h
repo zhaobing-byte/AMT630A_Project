@@ -181,8 +181,8 @@
 
 #ifdef SPIDetectEn
 
-#define hw_spi_setSEL_output(x)			   SetP3_7(x)
-#define hw_spi_setCLK_output(x)			   SetP0_7(x)
+#define hw_spi_setSEL_output(x)			   SetP0_7(x)
+#define hw_spi_setCLK_output(x)			   SetP3_7(x)
 #define hw_spi_setSDA_output(x)            SetP0_6(x)
 #define hw_spi_getSDA_input()              GetP0_6()
  

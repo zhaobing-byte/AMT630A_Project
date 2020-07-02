@@ -29,10 +29,10 @@
 #include "AMT_Reg.h"
 #include "AMT_Drv.h"
 #include "AMT_Mcu.h"
-#include "channels.h"		  
+#include "channels.h"
+#include "Draw_osd.h"
 void main(void)																 										   
 {
-	UINT8 RSSI;
 	UINT16 loop_count = 0;
 	UINT8 i= 0;
     DisableWatchdog();
@@ -124,59 +124,8 @@ void main(void)
 		loop_count++;
 		if(loop_count > 200)
 		{
-			if(get_menu_status())
-			{
-				RSSI = (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
-				if(RSSI >= 99)
-				{	
-					RSSI = 99;
-				}
-				XBYTE[0XFB05]=0X41;                //打开BLOCK0	
-				OsdBlockEnable(0);                 //使能选择的块
-				OsdConfigWndSize(0x14,0x0D);       //设置块大小	
-				OsdConfigWndPosition(260,100);     //设置块的位置
-				XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
-				XBYTE[0XFB56]=0X00; 
-				XBYTE[0XFB57]=0X00;                //背景色
-				OsdDrawNum(1,15,GREEN,RSSI);
-				OsdDrawStr(1,14,GREEN," \xAF");
-				OsdDrawStr(2,1,GREEN,"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1");
-				OsdDrawGuage(3,1,99,GREEN,RSSI);
-				OsdDrawStr(1,1,GREEN,"BAND:");
-				OsdDrawStr(1,6,GREEN,getName(getRFTabRow()*8+getRFTabLine()));
-				OsdDrawStr(1,8,GREEN," ");
-				OsdDrawNum(1,9,GREEN,getFrequency(getRFTabRow()*8+getRFTabLine()));
-			  	OsdDrawStr(4,3,GREEN,"\xAF");
-			  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
-			  	OsdDrawStr(5,2,GREEN,"A\xAF");	
-				OsdDrawStr(5,1,GREEN," ");
-				OsdDrawStr(6,1,GREEN," ");
-				OsdDrawStr(7,1,GREEN," ");
-				OsdDrawStr(8,1,GREEN," ");
-				OsdDrawStr(9,1,GREEN," ");
-				OsdDrawStr(10,1,GREEN," ");
-				OsdDrawStr(getRFTabRow()+5,1,GREEN,"+");
-				
-			  	OsdDrawStr(6,2,GREEN,"B\xAF");
-			  	OsdDrawStr(7,2,GREEN,"E\xAF");
-			  	OsdDrawStr(8,2,GREEN,"F\xAF");
-			  	OsdDrawStr(9,2,GREEN,"R\xAF");
-			  	OsdDrawStr(10,2,GREEN,"L\xAF");
-			  	OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
-				if(1 == get_cursor_line())
-				{
-					OsdDrawStr(11,get_cursor_line()+3,GREEN,"&\0");
-				}
-				else
-				{
-					OsdDrawStr(11,get_cursor_line()+5,GREEN,"&\0");
-				}
-				loop_count = 0;
-			}
-			else
-			{
-				OsdBlockHide(0);
-			}
+			 Draw_Fre_point_inf_OSD();
+			 loop_count = 0;
 		}
 	}
 	return;
