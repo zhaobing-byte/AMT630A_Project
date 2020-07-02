@@ -105,7 +105,7 @@ AMTDRV_EXTERN_ void SetSpDat(UCHAR Data);
 AMTDRV_EXTERN_ void SetSpClk(UCHAR Data);
 AMTDRV_EXTERN_ void SetSpEna(UCHAR Data);
 AMTDRV_EXTERN_ void SetReset(UCHAR Data);
-AMTDRV_EXTERN_ void SetBuzzerOn(void);
+AMTDRV_EXTERN_ void SetBuzzerOn(UINT8 Buzzertime);
 AMTDRV_EXTERN_ void POS_AdjustSpiReg(void);
 AMTDRV_EXTERN_ void POS_RecUartSpiInfor(void); 
 AMTDRV_EXTERN_ void SetI2CDebug(void);

@@ -19,6 +19,9 @@
 #include "AMT_Reg.h"
 #include "AMT_Drv.h"
 #include "Delay.h"
+#include "Draw_osd.h"
+#include "Debug.h"
+
 
 #define RSSI_CH             CH1              //RX_RSSI_ADC 的值在通道1上采集
 #define USE_LBAND  
@@ -374,21 +377,54 @@ UINT8 getOrderedIndex(UINT8 index)
 	return channelFreqOrderedIndex[index];
 }
 
+
 const UINT8 getOrderedIndexFromIndex(UINT8 index) 
 {
     return channelIndexToOrderedIndex[index];
 }
 
-UINT getAdcRssiValue(UINT8 channel)
+
+static UINT POS_GetBestAdcRssiVal( UINT * AdcBuf, UCHAR Length)
 {
-	UINT16 temp;
-	setSynthRegisterB(getSynthRegisterB(channel));       //设置到相应频点，频点范围0~47共48个频道
-	DelayMs(25);
-	temp = (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
-	if(temp > 99)
-	{
-		temp = 99;
-	}
-	return temp;
+	return POS_GetBestAdcKeyVal(AdcBuf,Length);
+}
+
+UINT8 getCurrentAdcRssiValue(void)
+{
+	static UINT8 XDATA CurrentRSSIVal = 0;
+	static UINT  XDATA RSSIAdcBuf[] = {0XFFFF,0XFFFF,0XFFFF,0XFFFF};   //ADC 采样零时缓冲区
+	static UINT  XDATA CurrentAdcVal;             //记录当前的ADC值
+	static UCHAR Index;
 	
+	for(Index = 0 ; Index <= 4 ; Index ++)
+	{
+		RSSIAdcBuf[Index] = POS_EnableChipAdc(RSSI_CH);
+		DelayMs(1);
+	}	
+	CurrentAdcVal = POS_GetBestAdcRssiVal(RSSIAdcBuf,4);
+	CurrentRSSIVal = (99.0)/(1920.0-500.0)*(CurrentAdcVal-500);
+	return CurrentRSSIVal;
+}
+
+UINT8 FastSearchFrequency(void)
+{
+	UINT8 CurrentRssiMax = 0;
+	UINT8 CurrentRssi = 0;
+	UINT8 ChannelIndex;
+	UINT8 MAX_RSSI_CH_FLG = 0;
+	for(ChannelIndex = 0 ; ChannelIndex < 48 ; ChannelIndex++)  
+	{
+		setSynthRegisterB(getSynthRegisterB(ChannelIndex));      //设置频点
+		DrawFrePointCursor(getSynthRegisterB(ChannelIndex));
+		DelayMs(30);
+		CurrentRssi =  getCurrentAdcRssiValue();		
+		if(CurrentRssi >= CurrentRssiMax)
+		{
+			CurrentRssiMax = CurrentRssi;
+			MAX_RSSI_CH_FLG = ChannelIndex;
+		} 
+	}
+	SetBuzzerOn(2);
+	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
+	return 0;
 }

@@ -5,6 +5,6 @@
 #include "rx_5808.h"
 
 UINT8 Draw_Fre_point_inf_OSD(void);
-
+UINT8 DrawFrePointCursor(UINT8 FreNumber);
 
 #endif 

@@ -116,9 +116,9 @@ void SetReset(UCHAR Data)
 *description: …Ë÷√∑‰√˘∆˜°£
 *history:   yshuizhou   2014/02/13    1.0    build   this  function
 *****************************************************************************/
-void SetBuzzerOn(void)
+void SetBuzzerOn(UINT8 Buzzertime)
 {
-#define Buzzertime   50
+//#define Buzzertime   1
 
    UCHAR XDATA i;
 

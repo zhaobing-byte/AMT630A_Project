@@ -19,11 +19,7 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	UINT8 RSSI;
 	if(get_menu_status())
 	{
-		RSSI = (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
-		if(RSSI >= 99)
-		{	
-			RSSI = 99;
-		}
+	    RSSI = getCurrentAdcRssiValue();
 		XBYTE[0XFB05]=0X41;                //打开BLOCK0	
 		OsdBlockEnable(0);                 //使能选择的块
 		OsdConfigWndSize(0x14,0x0D);       //设置块大小	

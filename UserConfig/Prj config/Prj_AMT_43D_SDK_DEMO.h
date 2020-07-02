@@ -497,12 +497,12 @@
 /*========================================================
 <<<<<<<<<<<<<<<<<<<<   蜂鸣器配置>>>>>>>>>>>>>>>>>>>>>>
 =========================================================*/ 
-//#define BuzzerEn              	//蜂鸣器使能开关
+#define BuzzerEn              	//蜂鸣器使能开关
 
 #ifdef BuzzerEn
-#define hw_turnOnBuzzer()   SetP2_2(1)
-#define hw_BuzzerTime()     DelayMs(50)
-#define hw_turnOffBuzzer()  SetP2_2(0)
+#define hw_turnOnBuzzer()   SetP3_6(1)
+#define hw_BuzzerTime()     DelayMs(80)
+#define hw_turnOffBuzzer()  SetP3_6(0)
 #endif
 
 

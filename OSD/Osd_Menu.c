@@ -32,8 +32,6 @@ bit MENU_KEYPRESS_FLAG = 0;
 UINT8 rf_tab_line = 0;   //列
 UINT8 rf_tab_row = 0;    //行
 
-static UINT8 RSSI_MAX=0,MAX_RSSI_CH_FLG=0,RSSI = 0,k=0;
-
 UCHAR KeyMsgProcess(MSG curMsg)
 {
      UCHAR ucComd = COMD_Nothing;
@@ -50,7 +48,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -68,7 +66,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -79,15 +77,14 @@ UCHAR KeyMsgProcess(MSG curMsg)
 	   case MSG_UPK_LEFT:
 	   	   // printfStr("MSG_UPK_LEFT");
 	   	    SetSaveFlagEn();
-
-		    #ifdef BuzzerEn
+		    #ifdef BuzzerEnMsg
 			if(g_UserInputInfo.Type & KeyType)
 			{
 			   	if(IsPowerOn())  
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+					 SetBuzzerOn(1);
 				   }
 			    }
 			}
@@ -98,6 +95,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_LEFT PRESS");
+					SetBuzzerOn(1);
 					if(MENU_KEYPRESS_FLAG)
 					{
 						rf_tab_row++;
@@ -126,15 +124,14 @@ UCHAR KeyMsgProcess(MSG curMsg)
 	   case MSG_UPK_RIGHT:
 	   	   // printfStr("MSG_UPK_RIGHT");
 	   	    SetSaveFlagEn();
-
-		    #ifdef BuzzerEn
+		    #ifdef BuzzerEnMsg
 			if(g_UserInputInfo.Type & KeyType)
 			{
 			   	if(IsPowerOn())  
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+					 SetBuzzerOn(1);
 				   }
 			    }
 			}
@@ -144,6 +141,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_RIGHT PRESS");
+					 SetBuzzerOn(1);
 					if(MENU_KEYPRESS_FLAG)
 					{
 						rf_tab_line++;
@@ -169,15 +167,15 @@ UCHAR KeyMsgProcess(MSG curMsg)
 	     	break;
 			
 	   case MSG_UPK_MENU:
-	   	    printfStr("MSG_UPK_MENU");
-			#ifdef BuzzerEn
+	   	  //  printfStr("MSG_UPK_MENU");
+			#ifdef BuzzerEnMsg
 			if(g_UserInputInfo.Type & KeyType)
 			{
 			   	if(IsPowerOn())  
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+					 SetBuzzerOn(1);
 				   }
 			    }
 			}
@@ -186,29 +184,14 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			{
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
+					SetBuzzerOn(1);
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
 				}
 			
 				if(g_UserInputInfo.Status == KEYHOLD)    //长按menu 按键搜索频点
 				{
 					printfStr("MSG_UPK_MENU KEYHOLD");
-					for(k = 0 ; k < 48 ; k++)
-					{
-						setSynthRegisterB(getSynthRegisterB(k));
-						DelayMs(20);
-						RSSI =  (99.0)/(1920.0-500.0)*(POS_EnableChipAdc(CH1)-500);
-						if(RSSI >= RSSI_MAX)
-						{
-							RSSI_MAX = RSSI;
-							MAX_RSSI_CH_FLG = k;
-						} 
-					}
-					printf("RSSI : %d",RSSI_MAX);
-					setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	
-					rf_tab_row= MAX_RSSI_CH_FLG / 8;
-					rf_tab_line = MAX_RSSI_CH_FLG % 8;
-					RSSI_MAX = 0;
-					MAX_RSSI_CH_FLG = 0;
+					FastSearchFrequency();
 				}
 				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
 				{
@@ -230,7 +213,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -248,7 +231,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -266,7 +249,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -284,7 +267,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -302,7 +285,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -320,7 +303,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -338,7 +321,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -361,7 +344,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -379,7 +362,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 				   }
 			    }
 			}
@@ -400,7 +383,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			{  
 			   if(inputPress == g_UserInputInfo.Status)
 			   { 
-					 SetBuzzerOn();
+//					 SetBuzzerOn();
 			   }
 			}
             #endif
@@ -409,6 +392,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_POWER PRESS");
+					SetBuzzerOn(1);
 				}
 			
 				if(g_UserInputInfo.Status == KEYHOLD)

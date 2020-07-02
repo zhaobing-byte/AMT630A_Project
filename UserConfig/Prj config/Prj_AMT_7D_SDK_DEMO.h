@@ -483,7 +483,7 @@
 
 #ifdef BuzzerEn
 #define hw_turnOnBuzzer()   SetP2_2(1)
-#define hw_BuzzerTime()     DelayMs(50)
+#define hw_BuzzerTime()     DelayMs(80)
 #define hw_turnOffBuzzer()  SetP2_2(0)
 #endif
 
