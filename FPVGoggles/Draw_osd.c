@@ -20,7 +20,7 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	{
 	    RSSI = getCurrentAdcRssiValue();
 		OsdBlockEnable(0);                 //使能选择的块
-		OsdConfigWndSize(0x14,0x0D);       //设置块大小	
+		OsdConfigWndSize(0x14,0x0E);       //设置块大小	
 		OsdConfigBlockColor(BLACK);
 		OsdConfigWndPosition(260,100);     //设置块的位置
 		OsdDrawStr(0,0,COLOR(WHITE,BLACK),"                     ");
@@ -35,16 +35,19 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 		OsdDrawGuage(3,1,99,COLOR(WHITE,BLACK),RSSI);	
 		OsdDrawStr(4,0,COLOR(WHITE,BLACK),"   ");
 	  	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
-	  	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8 ");
-		DrawFrePointCursor(getFreNumber());
+	  	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8   ");
+		//DrawFrePointCursor(getFreNumber());
 		OsdDrawStr(5,0,COLOR(WHITE,BLACK)," ");
-	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF                 ");	
-	  	OsdDrawStr(6,2,COLOR(WHITE,BLACK), "B\xAF                 ");
-	  	OsdDrawStr(7,2,COLOR(WHITE,BLACK), "E\xAF                 ");
+	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF                  ");	
+	  	OsdDrawStr(6,2,COLOR(WHITE,BLACK), "B\xAF                  ");
+	  	OsdDrawStr(7,2,COLOR(WHITE,BLACK), "E\xAF                  ");
 	  	OsdDrawStr(8,2,COLOR(WHITE,BLACK), "F\xAF                 ");
 	  	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF                 ");
 	  	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF                 ");
 		OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
+		OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
+		OsdDrawStr(13,0,COLOR(WHITE,BLACK),"                             ");
+		DrawBattVol(12,2,COLOR(GREEN,BLACK),UpdataBattVol());
 		OSD_SetFrequencyMark(getFreNumber());
 		OsdBlockShow(0);
 	}
@@ -192,7 +195,7 @@ void OSD_ResetFrequencyMark(UINT8 FrNumber)
 	OsdDrawStr(5+row,line,COLOR(WHITE,BLACK)," ");
 }
 
-UINT8 DrawBattVol(void)
+/*UINT8 DrawBattVol(void)
 {
 	//OsdBlockClear(0);
 	OsdBlockEnable(1);
@@ -202,6 +205,21 @@ UINT8 DrawBattVol(void)
 	OsdDrawStr(0,0,COLOR(RED,TRANSPARENCE),"hello");   //TRANSPARENCE 透明
 	OsdBlockShow(1);
 	return 0;
+}*/
+
+void DrawBattVol(UCHAR starRow,UCHAR starLine,UCHAR fbColor, UINT16 VOL)
+{
+	 UCHAR CODE DatBuf[] = {'0','1','2','3','4','5','6','7','8','9'};
+	 UCHAR XDATA DispValBuf[6] = "";
+	 DispValBuf[0]=DatBuf[VOL/100];
+	 DispValBuf[1]= '.';
+	 DispValBuf[2]=DatBuf[(VOL%100)/10];
+	 DispValBuf[3]=DatBuf[((VOL%100)%10)];
+	 DispValBuf[4] = 'V';
+	 DispValBuf[5] = '\0';
+	 OsdDrawStr(starRow,starLine,fbColor,DispValBuf);
 }
+
+
 
 

@@ -63,7 +63,7 @@
 //[VcomDC type]
 #define VCOMDC_TYPE    									NULL_PWM  
 #define DEFAULT_VCOMDCFREQ	                            0
-#define DEFAULT_VCOMDCVAL                                 0
+#define DEFAULT_VCOMDCVAL                               0
 
 /*========================================================
 <<<<<<<<<<<<<<<<<< Èí¼þ¿âÅäÖÃ>>>>>>>>>>>>>>>>>

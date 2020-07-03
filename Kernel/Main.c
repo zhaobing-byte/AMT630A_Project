@@ -31,6 +31,14 @@
 #include "AMT_Mcu.h"
 #include "channels.h"
 #include "Draw_osd.h"
+
+UINT16 BattVol;
+
+UINT16 UpdataBattVol(void)
+{
+	return BattVol;
+}
+
 void main(void)																 										   
 {
 	UINT16 draw_osd_loop_count = 0;
@@ -126,12 +134,11 @@ void main(void)
 
 		if(batt_updata_loop_count > 2000)
 		{
-			printf("battVol: %d",GetBatteryVol());
+			BattVol = GetBatteryVol();
 			batt_updata_loop_count = 0;
 		}
 		if(draw_osd_loop_count > 200)
 		{
-			//DrawBattVol();
 			Draw_Fre_point_inf_OSD();
 			draw_osd_loop_count = 0;
 		}

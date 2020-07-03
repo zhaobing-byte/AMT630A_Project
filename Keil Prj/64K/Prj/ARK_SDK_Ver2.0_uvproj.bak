@@ -706,6 +706,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\FPVGoggles\Draw_osd.c</FilePath>
             </File>
+            <File>
+              <FileName>BattAdc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\FPVGoggles\BattAdc.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

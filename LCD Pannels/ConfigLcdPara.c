@@ -331,10 +331,10 @@ state:   allright
 **************************************************************************/
 void UpdataPicPara(void) 
 {   
-	BRIGHT_REG    =  DataCurve(BRIGHT_MIN,g_ucbrightness,BRIGHT_MAX,  g_sysSetting.Video.brigthness,MAX_VALUE);
-	CONTRAST_REG  =  DataCurve(CONTRAST_MIN,g_ucContrast,CONTRAST_MAX,  g_sysSetting.Video.contrast,MAX_VALUE);
-	SATURATION_REG=  DataCurve(SATURATION_MIN,g_ucSaturation,SATURATION_MAX,  g_sysSetting.Video.saturation,MAX_VALUE);
-	TINT_REG      =  TintCurve(g_sysSetting.Video.tint,MAX_VALUE);
+	BRIGHT_REG    =  DataCurve(BRIGHT_MIN,g_ucbrightness,BRIGHT_MAX,  g_sysSetting.Video.brigthness,MAX_VALUE);                  //向寄存器XBYTE[0XFFD4]写入亮度值
+	CONTRAST_REG  =  DataCurve(CONTRAST_MIN,g_ucContrast,CONTRAST_MAX,  g_sysSetting.Video.contrast,MAX_VALUE);                  //向寄存器XBYTE[0XFFD3]写入对比度
+	SATURATION_REG=  DataCurve(SATURATION_MIN,g_ucSaturation,SATURATION_MAX,  g_sysSetting.Video.saturation,MAX_VALUE);          //向寄存器XBYTE[0XFFD6]写入对色度
+	TINT_REG      =  TintCurve(g_sysSetting.Video.tint,MAX_VALUE);                                                               //向寄存器XBYTE[0XFFD5]写值
 
 	switch(VCOMDC_TYPE)
 	{

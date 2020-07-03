@@ -6,7 +6,7 @@
 
 UINT8 Draw_Fre_point_inf_OSD(void);
 UINT8 DrawFrePointCursor(UINT8 FreNumber);
-UINT8 DrawBattVol(void);
 void OSD_SetFrequencyMark(UINT8 FrNumber);
 void OSD_ResetFrequencyMark(UINT8 FrNumber);
+void DrawBattVol(UCHAR starRow,UCHAR starLine,UCHAR fbColor, UINT16 VOL);
 #endif 
