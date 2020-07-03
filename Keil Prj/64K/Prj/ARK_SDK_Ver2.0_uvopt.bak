@@ -465,10 +465,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>41</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>119</TopLine>
-      <CurrentLine>152</CurrentLine>
+      <TopLine>94</TopLine>
+      <CurrentLine>130</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -493,7 +493,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>32</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>45</TopLine>
       <CurrentLine>68</CurrentLine>
@@ -610,7 +610,7 @@
 
   <Group>
     <GroupName>Modules</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -708,7 +708,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -773,10 +773,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>84</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>34</TopLine>
+      <CurrentLine>51</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_BatteryAdcMenu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_BatteryAdcMenu.c</FilenameWithoutPath>
@@ -1011,10 +1011,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>94</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>176</TopLine>
-      <CurrentLine>194</CurrentLine>
+      <TopLine>44</TopLine>
+      <CurrentLine>44</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\OSD\Osd_Menu.c</PathWithFileName>
       <FilenameWithoutPath>Osd_Menu.c</FilenameWithoutPath>
@@ -1116,13 +1116,27 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>333</TopLine>
-      <CurrentLine>354</CurrentLine>
+      <TopLine>394</TopLine>
+      <CurrentLine>431</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\channels.c</PathWithFileName>
       <FilenameWithoutPath>channels.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>11</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\FPVGoggles\Draw_osd.c</PathWithFileName>
+      <FilenameWithoutPath>Draw_osd.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -1232,8 +1246,8 @@
 
   <AlienFiles>
     <PathWithFilename>E:\github\AMT630A_Project\DEVICE DRIVER\AMT\AMT_DRV.C</PathWithFilename>
-    <TopLine>691</TopLine>
-    <CurrentLine>712</CurrentLine>
+    <TopLine>677</TopLine>
+    <CurrentLine>684</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1416,6 +1430,84 @@
     <PathWithFilename>E:\github\AMT630A_Project\DEVICE DRIVER\AMT\AMT_DRV.H</PathWithFilename>
     <TopLine>84</TopLine>
     <CurrentLine>89</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>E:\github\AMT630A_Project\FPVGoggles\Draw_osd.h</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>10</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>E:\github\AMT630A_Project\OSD\OSD_MENU.H</PathWithFilename>
+    <TopLine>196</TopLine>
+    <CurrentLine>209</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>E:\github\AMT630A_Project\GETUSERINPUT\KEY\ADCKEYPAD.H</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>31</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2779,13 +2871,55 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
+          <Name>..\..\..\OSD\Osd_BatteryAdcMenu.c</Name>
+          <ColumnNumber>84</ColumnNumber>
+          <TopLine>34</TopLine>
+          <CurrentLine>51</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\DEVICE DRIVER\AMT\AMT_DRV.C</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>677</TopLine>
+          <CurrentLine>684</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\GETUSERINPUT\KEY\ADCKEYPAD.H</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>31</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\OSD\OSD_MENU.H</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>196</TopLine>
+          <CurrentLine>209</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\FPVGOGGLES\DRAW_OSD.H</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>10</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\FPVGoggles\Draw_osd.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\..\Kernel\Main.c</Name>
+          <ColumnNumber>41</ColumnNumber>
+          <TopLine>94</TopLine>
+          <CurrentLine>130</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
-          <ColumnNumber>94</ColumnNumber>
-          <TopLine>176</TopLine>
-          <CurrentLine>194</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>44</TopLine>
+          <CurrentLine>44</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_RootMenu.c</Name>
@@ -2813,15 +2947,15 @@
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGOGGLES\CHANNELS.H</Name>
-          <ColumnNumber>25</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>5</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGoggles\channels.c</Name>
-          <ColumnNumber>26</ColumnNumber>
-          <TopLine>333</TopLine>
-          <CurrentLine>354</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>394</TopLine>
+          <CurrentLine>431</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Global.c</Name>
@@ -2872,20 +3006,8 @@
           <CurrentLine>184</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>119</TopLine>
-          <CurrentLine>152</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\..\DEVICE DRIVER\AMT\AMT_DRV.C</Name>
-          <ColumnNumber>41</ColumnNumber>
-          <TopLine>691</TopLine>
-          <CurrentLine>712</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>..\..\..\Kernel\GetSysMsg.c</Name>
-          <ColumnNumber>32</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>45</TopLine>
           <CurrentLine>68</CurrentLine>
         </Doc>
@@ -2951,7 +3073,7 @@
         </Doc>
         <Doc>
           <Name>../../../INC\GLOBAL.H</Name>
-          <ColumnNumber>65</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>476</TopLine>
           <CurrentLine>476</CurrentLine>
         </Doc>

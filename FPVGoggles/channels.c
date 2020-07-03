@@ -402,7 +402,8 @@ UINT8 getCurrentAdcRssiValue(void)
 		DelayMs(1);
 	}	
 	CurrentAdcVal = POS_GetBestAdcRssiVal(RSSIAdcBuf,4);
-	CurrentRSSIVal = (99.0)/(1920.0-500.0)*(CurrentAdcVal-500);
+	printf("%d",CurrentAdcVal);
+	CurrentRSSIVal = (99.0)/(2200.0-500.0)*(CurrentAdcVal-500.0);
 	return CurrentRSSIVal;
 }
 
@@ -415,8 +416,12 @@ UINT8 FastSearchFrequency(void)
 	for(ChannelIndex = 0 ; ChannelIndex < 48 ; ChannelIndex++)  
 	{
 		setSynthRegisterB(getSynthRegisterB(ChannelIndex));      //设置频点
-		DrawFrePointCursor(getSynthRegisterB(ChannelIndex));
-		DelayMs(30);
+		if(ChannelIndex != 0)
+		{
+			OSD_ResetFrequencyMark(ChannelIndex-1);
+		}
+		OSD_SetFrequencyMark(ChannelIndex);
+		DelayMs(20);
 		CurrentRssi =  getCurrentAdcRssiValue();		
 		if(CurrentRssi >= CurrentRssiMax)
 		{
@@ -426,5 +431,6 @@ UINT8 FastSearchFrequency(void)
 	}
 	SetBuzzerOn(2);
 	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
-	return 0;
+	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG);
+	return MAX_RSSI_CH_FLG;
 }

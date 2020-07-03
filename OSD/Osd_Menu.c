@@ -23,14 +23,16 @@
 #include "Ir.h"
 #include "channels.h"
 #include "Delay.h"
-
+#include "Draw_osd.h"
 #if OSD_STYLE_TYPE != OSD_STYLE_ARK
   "当前OSD风格不匹配，请设置为ARK OSD风格。"
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
 
 bit MENU_KEYPRESS_FLAG = 0;
+
 UINT8 rf_tab_line = 0;   //列
 UINT8 rf_tab_row = 0;    //行
+UINT8 rf_rssi_max_number = 0;
 
 UCHAR KeyMsgProcess(MSG curMsg)
 {
@@ -191,7 +193,9 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYHOLD)    //长按menu 按键搜索频点
 				{
 					printfStr("MSG_UPK_MENU KEYHOLD");
-					FastSearchFrequency();
+					rf_rssi_max_number = FastSearchFrequency();
+					rf_tab_row  = rf_rssi_max_number / 8;
+					rf_tab_line = rf_rssi_max_number % 8;
 				}
 				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
 				{

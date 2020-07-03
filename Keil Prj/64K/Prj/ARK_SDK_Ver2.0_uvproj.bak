@@ -701,6 +701,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\FPVGoggles\channels.c</FilePath>
             </File>
+            <File>
+              <FileName>Draw_osd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\FPVGoggles\Draw_osd.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

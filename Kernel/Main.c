@@ -33,8 +33,8 @@
 #include "Draw_osd.h"
 void main(void)																 										   
 {
-	UINT16 loop_count = 0;
-	UINT16 batt = 0;
+	UINT16 draw_osd_loop_count = 0;
+	UINT16 batt_updata_loop_count = 0;
     DisableWatchdog();
 		
 	InitSystem();  
@@ -121,15 +121,19 @@ void main(void)
 			MiscMsgHandle(curMsg);
 			curMsg = MSG_NULL;
 		}
-		loop_count++;
-		if(loop_count > 200)
+		draw_osd_loop_count++;
+		batt_updata_loop_count++;
+
+		if(batt_updata_loop_count > 2000)
 		{
-			 Draw_Fre_point_inf_OSD();
-			 batt = POS_EnableChipAdc(CH2);
-			 printf("batt val %d",batt);
-			 batt = 2.0*4.25*batt/4096.0*10*0.78;
-			 printf("batt %d",batt);
-			 loop_count = 0;
+			printf("battVol: %d",GetBatteryVol());
+			batt_updata_loop_count = 0;
+		}
+		if(draw_osd_loop_count > 200)
+		{
+			//DrawBattVol();
+			Draw_Fre_point_inf_OSD();
+			draw_osd_loop_count = 0;
 		}
 	}
 	return;

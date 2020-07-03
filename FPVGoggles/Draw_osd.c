@@ -12,7 +12,6 @@
 #include "Mcu.h"
 #include "Osd_menu.h"
 
-UINT8 DrawFrePointCursor(UINT8 FreNumber);
 
 UINT8 Draw_Fre_point_inf_OSD(void)
 {
@@ -20,30 +19,34 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	if(get_menu_status())
 	{
 	    RSSI = getCurrentAdcRssiValue();
-		XBYTE[0XFB05]=0X41;                //打开BLOCK0	
 		OsdBlockEnable(0);                 //使能选择的块
 		OsdConfigWndSize(0x14,0x0D);       //设置块大小	
+		OsdConfigBlockColor(BLACK);
 		OsdConfigWndPosition(260,100);     //设置块的位置
-		XBYTE[0XFB2A]=0X12;                //前景颜色是调色盘2，背景颜色是调色盘1
-		XBYTE[0XFB56]=0X00; 
-		XBYTE[0XFB57]=0X00;                //背景色
-		OsdDrawNum(1,15,GREEN,RSSI);
-		OsdDrawStr(1,14,GREEN," \xAF");
-		OsdDrawStr(2,1,GREEN,"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1");
-		OsdDrawGuage(3,1,99,GREEN,RSSI);
-		OsdDrawStr(1,1,GREEN,"BAND:");
-		OsdDrawStr(1,6,GREEN,getName(getFreNumber()));
-		OsdDrawStr(1,8,GREEN," ");
-		OsdDrawNum(1,9,GREEN,getFrequency(getFreNumber()));
-	  	OsdDrawStr(4,3,GREEN,"\xAF");
-	  	OsdDrawStr(4,4,GREEN,"1 2 3 4 5 6 7 8");
+		OsdDrawStr(0,0,COLOR(WHITE,BLACK),"                     ");
+		OsdDrawStr(1,1,COLOR(WHITE,BLACK),"BAND:");
+		OsdDrawStr(1,6,COLOR(CYAN,BLACK),getName(getFreNumber()));
+		OsdDrawStr(1,8,COLOR(WHITE,BLACK)," ");
+		OsdDrawNum(1,9,COLOR(CYAN,BLACK),getFrequency(getFreNumber()));
+		OsdDrawNum(1,15,COLOR(WHITE,BLACK),RSSI);
+		OsdDrawStr(1,13,COLOR(WHITE,BLACK),"   \xAF");
+		OsdDrawStr(1,19,COLOR(WHITE,BLACK),"  ");
+		OsdDrawStr(2,1,COLOR(WHITE,BLACK),"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1  ");
+		OsdDrawGuage(3,1,99,COLOR(WHITE,BLACK),RSSI);	
+		OsdDrawStr(4,0,COLOR(WHITE,BLACK),"   ");
+	  	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
+	  	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8 ");
 		DrawFrePointCursor(getFreNumber());
-	  	OsdDrawStr(5,2,GREEN, "A\xAF");	
-	  	OsdDrawStr(6,2,GREEN, "B\xAF");
-	  	OsdDrawStr(7,2,GREEN, "E\xAF");
-	  	OsdDrawStr(8,2,GREEN, "F\xAF");
-	  	OsdDrawStr(9,2,GREEN, "R\xAF");
-	  	OsdDrawStr(10,2,GREEN,"L\xAF");
+		OsdDrawStr(5,0,COLOR(WHITE,BLACK)," ");
+	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF                 ");	
+	  	OsdDrawStr(6,2,COLOR(WHITE,BLACK), "B\xAF                 ");
+	  	OsdDrawStr(7,2,COLOR(WHITE,BLACK), "E\xAF                 ");
+	  	OsdDrawStr(8,2,COLOR(WHITE,BLACK), "F\xAF                 ");
+	  	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF                 ");
+	  	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF                 ");
+		OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
+		OSD_SetFrequencyMark(getFreNumber());
+		OsdBlockShow(0);
 	}
 	else
 	{
@@ -66,22 +69,22 @@ UINT8 DrawFrePointCursor(UINT8 FreNumber)
 	switch (row)
 	{
 		case 0:
-			OsdDrawStr(5,1,GREEN,"+");OsdDrawStr(6,1,GREEN," ");OsdDrawStr(7,1,GREEN," ");OsdDrawStr(8,1,GREEN," ");OsdDrawStr(9,1,GREEN," ");OsdDrawStr(10,1,GREEN," ");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK),"+");OsdDrawStr(6,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(7,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(8,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(9,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(10,1,COLOR(WHITE,BLACK)," ");
 			break;
 		case 1:
-			OsdDrawStr(5,1,GREEN," ");OsdDrawStr(6,1,GREEN,"+");OsdDrawStr(7,1,GREEN," ");OsdDrawStr(8,1,GREEN," ");OsdDrawStr(9,1,GREEN," ");OsdDrawStr(10,1,GREEN," ");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(6,1,COLOR(WHITE,BLACK),"+");OsdDrawStr(7,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(8,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(9,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(10,1,COLOR(WHITE,BLACK)," ");
 			break;
 		case 2:
-			OsdDrawStr(5,1,GREEN," ");OsdDrawStr(6,1,GREEN," ");OsdDrawStr(7,1,GREEN,"+");OsdDrawStr(8,1,GREEN," ");OsdDrawStr(9,1,GREEN," ");OsdDrawStr(10,1,GREEN," ");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(6,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(7,1,COLOR(WHITE,BLACK),"+");OsdDrawStr(8,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(9,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(10,1,COLOR(WHITE,BLACK)," ");
 			break;
 		case 3:
-			OsdDrawStr(5,1,GREEN," ");OsdDrawStr(6,1,GREEN," ");OsdDrawStr(7,1,GREEN," ");OsdDrawStr(8,1,GREEN,"+");OsdDrawStr(9,1,GREEN," ");OsdDrawStr(10,1,GREEN," ");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(6,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(7,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(8,1,COLOR(WHITE,BLACK),"+");OsdDrawStr(9,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(10,1,COLOR(WHITE,BLACK)," ");
 			break;
 		case 4:
-			OsdDrawStr(5,1,GREEN," ");OsdDrawStr(6,1,GREEN," ");OsdDrawStr(7,1,GREEN," ");OsdDrawStr(8,1,GREEN," ");OsdDrawStr(9,1,GREEN,"+");OsdDrawStr(10,1,GREEN," ");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(6,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(7,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(8,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(9,1,COLOR(WHITE,BLACK),"+");OsdDrawStr(10,1,COLOR(WHITE,BLACK)," ");
 			break;
 		case 5:
-			OsdDrawStr(5,1,GREEN," ");OsdDrawStr(6,1,GREEN," ");OsdDrawStr(7,1,GREEN," ");OsdDrawStr(8,1,GREEN," ");OsdDrawStr(9,1,GREEN," ");OsdDrawStr(10,1,GREEN,"+");
+			OsdDrawStr(5,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(6,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(7,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(8,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(9,1,COLOR(WHITE,BLACK)," ");OsdDrawStr(10,1,COLOR(WHITE,BLACK),"+");
 			break;
 		default:
 			break;
@@ -90,31 +93,115 @@ UINT8 DrawFrePointCursor(UINT8 FreNumber)
 	switch (line)
 	{
 		case 0:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
 			break;
 		case 1:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
 			break;
 		case 2:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
 			break;
 		case 3:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
 			break;
 		case 4:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5\xB5\xB5 ");
 			break;
 		case 5:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5");
+			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5\xB5\xB5 ");
 			break;
 		case 6:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5");
-			break;
-		case 7:
-			OsdDrawStr(11,1,GREEN,"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0");
+ 			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0\xB5\xB5 ");
+ 			break;
+ 		case 7:
+ 			OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5&\0 ");
 			break;
 		default:
 			break;		
 	}
 	return 0;
 }
+
+void OSD_SetFrequencyMark(UINT8 FrNumber)
+{
+	UINT8 row,line;      //行，列标号
+	row  = FrNumber / 8;
+	line = FrNumber % 8; 
+	switch (line)
+	{
+		case 0:
+			line = line + 4;
+			break;
+		case 1:
+			line = line + 3 + 2;
+			break;
+		case 2:
+			line = line + 3 + 3;
+			break;
+		case 3:
+			line = line + 3 + 4;
+			break;
+		case 4:
+			line = line + 3 + 5;
+			break;
+		case 5:
+			line = line + 3 + 6;
+			break;
+		case 6:
+			line = line + 3 + 7;
+			break;
+		case 7:
+			line = line + 3 + 8;
+			break;	
+	}
+	OsdDrawStr(5+row,line,COLOR(WHITE,WHITE)," ");
+}
+
+void OSD_ResetFrequencyMark(UINT8 FrNumber)
+{
+	UINT8 row,line;      //行，列标号
+	row  = FrNumber / 8;
+	line = FrNumber % 8; 
+	switch (line)
+	{
+		case 0:
+			line = line + 4;
+			break;
+		case 1:
+			line = line + 3 + 2;
+			break;
+		case 2:
+			line = line + 3 + 3;
+			break;
+		case 3:
+			line = line + 3 + 4;
+			break;
+		case 4:
+			line = line + 3 + 5;
+			break;
+		case 5:
+			line = line + 3 + 6;
+			break;
+		case 6:
+			line = line + 3 + 7;
+			break;
+		case 7:
+			line = line + 3 + 8;
+			break;	
+	}
+	OsdDrawStr(5+row,line,COLOR(WHITE,BLACK)," ");
+}
+
+UINT8 DrawBattVol(void)
+{
+	//OsdBlockClear(0);
+	OsdBlockEnable(1);
+	OsdConfigWndSize(0x05,0x01);         //设置块大小	
+	OsdConfigWndPosition(30,22);         //设置块的位置
+	//OsdConfigBlockColor(RED);
+	OsdDrawStr(0,0,COLOR(RED,TRANSPARENCE),"hello");   //TRANSPARENCE 透明
+	OsdBlockShow(1);
+	return 0;
+}
+
+
