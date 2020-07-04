@@ -52,7 +52,7 @@ void main(void)
 	
 	printfStr("<<<<<<<<<<<<<<  Enter main loop >>>>>>>>>>>>\n");	
 	printfStr("test ADC TP3_KEY :   \n");
-	
+
 	while(1)
 	{   
 	    MSG curMsg;
@@ -139,7 +139,7 @@ void main(void)
 		}
 		if(draw_osd_loop_count > 200)
 		{
-			Draw_Fre_point_inf_OSD();
+			FpvOsdUpdata();
 			draw_osd_loop_count = 0;
 		}
 	}

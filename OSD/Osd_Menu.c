@@ -197,6 +197,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					SetBuzzerOn(1);
+					DrawFPVOsdWind();
 					printfStr("MSG_UPK_MENU KEYPRESS");
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
 				}

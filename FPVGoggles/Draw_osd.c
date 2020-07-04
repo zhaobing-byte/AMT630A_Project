@@ -13,40 +13,21 @@
 #include "Osd_menu.h"
 
 
-UINT8 Draw_Fre_point_inf_OSD(void)
+
+UINT8 FpvOsdUpdata(void)
 {
 	UINT8 RSSI;
 	if(get_menu_status())
 	{
 	    RSSI = getCurrentAdcRssiValue();
 		setFrequencyPointStatus(getFreNumber(),RSSI);       //记录当前频点的通道编号以及RSSI
-		OsdBlockEnable(0);                 //使能选择的块
-		OsdConfigWndSize(0x14,0x0E);       //设置块大小	
-		OsdConfigBlockColor(BLACK);
-		OsdConfigWndPosition(260,100);     //设置块的位置
-		OsdDrawStr(0,0,COLOR(WHITE,BLACK),"                     ");
-		OsdDrawStr(1,1,COLOR(WHITE,BLACK),"BAND:");
 		OsdDrawStr(1,6,COLOR(CYAN,BLACK),getName(getFreNumber()));
-		OsdDrawStr(1,8,COLOR(WHITE,BLACK)," ");
 		OsdDrawNum(1,9,COLOR(CYAN,BLACK),getFrequency(getFreNumber()));
 		OsdDrawNum(1,15,COLOR(WHITE,BLACK),RSSI);
 		OsdDrawStr(1,13,COLOR(WHITE,BLACK),"   \xAF");
-		OsdDrawStr(1,19,COLOR(WHITE,BLACK),"  ");
-		OsdDrawStr(2,1,COLOR(WHITE,BLACK),"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1  ");
 		OsdDrawGuage(3,1,99,COLOR(WHITE,BLACK),RSSI);	
-		OsdDrawStr(4,0,COLOR(WHITE,BLACK),"   ");
 	  	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
-	  	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8   ");
-		OsdDrawStr(5,0,COLOR(WHITE,BLACK)," ");
-	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF");	
-	  	OsdDrawStr(6,0,COLOR(WHITE,BLACK), "  B\xAF");
-	  	OsdDrawStr(7,0,COLOR(WHITE,BLACK), "  E\xAF");
-	  	OsdDrawStr(8,0,COLOR(WHITE,BLACK), "  F\xAF");
-	  	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF");
-	  	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF");
-		OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
-		OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
-		OsdDrawStr(13,0,COLOR(WHITE,BLACK),"                             ");
+		OsdDrawStr(12,6,COLOR(WHITE,BLACK),"               ");
 		if(UpdataBattVol() > 350)
 		{
 			DrawBattVol(12,1,COLOR(GREEN,BLACK),UpdataBattVol());
@@ -60,16 +41,45 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	}
 	else
 	{
+		//RefreshCursorPanel();
 		OsdBlockHide(0);
 	}
 	return 0;	
 }
 
+void DrawFPVOsdWind(void)
+{
+	OsdBlockEnable(0);                 //使能选择的块
+	OsdConfigWndSize(0x14,0x0E);       //设置块大小	
+	OsdConfigBlockColor(BLACK);
+	OsdConfigWndPosition(260,100);     //设置块的位置
+	OsdDrawStr(0,0,COLOR(WHITE,BLACK),"                     ");
+	OsdDrawStr(1,1,COLOR(WHITE,BLACK),"BAND:");
+	OsdDrawStr(1,8,COLOR(WHITE,BLACK)," ");
+	OsdDrawStr(1,13,COLOR(WHITE,BLACK),"   \xAF");
+	OsdDrawStr(1,19,COLOR(WHITE,BLACK),"  ");
+	OsdDrawStr(2,1,COLOR(WHITE,BLACK),"&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1&\1  ");
+	OsdDrawStr(4,0,COLOR(WHITE,BLACK),"   ");
+	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
+	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8   ");
+	OsdDrawStr(5,0,COLOR(WHITE,BLACK)," ");
+	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF");	
+	OsdDrawStr(6,0,COLOR(WHITE,BLACK), "  B\xAF");
+	OsdDrawStr(7,0,COLOR(WHITE,BLACK), "  E\xAF");
+	OsdDrawStr(8,0,COLOR(WHITE,BLACK), "  F\xAF");
+	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF");
+	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF");
+	OsdDrawStr(5,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(6,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(7,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(8,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(9,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(10,4,COLOR(WHITE,BLACK),"                ");
+	OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
+	OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
+	OsdDrawStr(13,0,COLOR(WHITE,BLACK),"                             ");
+}
 
-//void RefreshCursorPanel
-//{
-//	
-//}
 
 UINT8 DrawFrePointCursor(UINT8 FreNumber)
 {
