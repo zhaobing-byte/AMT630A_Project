@@ -24,6 +24,18 @@
 	#define CHANNELS_SIZE 40
 #endif
 
+#define QUIET_FR_LIMIT_LOW 20
+#define QUIET_FR_LIMIT_MEDIUM 70
+
+
+
+typedef struct
+{
+     UINT8 RF_Number;
+	 UINT8 RSSI;
+}FrequencyPointStatus;
+
+
 UINT  getSynthRegisterB(UINT8 index);
 UINT  getFrequency(UINT8 index);
 char *getName(UINT8 index);
@@ -31,5 +43,8 @@ UINT8 getOrderedIndex(UINT8 index);
 UINT8 getOrderedIndexFromIndex(UINT8 index);				   
 UINT8 getCurrentAdcRssiValue(void);
 UINT8 FastSearchFrequency(void);
+UINT8 FastScanFrequency(void);
+void setFrequencyPointStatus(UINT8 LashFRNumber,UINT8 LashFRrssi);
+void getFrequencyPointStatus(FrequencyPointStatus *LastFrStatus);
 
 #endif

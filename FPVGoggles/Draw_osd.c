@@ -19,6 +19,7 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	if(get_menu_status())
 	{
 	    RSSI = getCurrentAdcRssiValue();
+		setFrequencyPointStatus(getFreNumber(),RSSI);       //记录当前频点的通道编号以及RSSI
 		OsdBlockEnable(0);                 //使能选择的块
 		OsdConfigWndSize(0x14,0x0E);       //设置块大小	
 		OsdConfigBlockColor(BLACK);
@@ -36,19 +37,25 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 		OsdDrawStr(4,0,COLOR(WHITE,BLACK),"   ");
 	  	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
 	  	OsdDrawStr(4,4,COLOR(WHITE,BLACK),"1 2 3 4 5 6 7 8   ");
-		//DrawFrePointCursor(getFreNumber());
 		OsdDrawStr(5,0,COLOR(WHITE,BLACK)," ");
-	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF                  ");	
-	  	OsdDrawStr(6,2,COLOR(WHITE,BLACK), "B\xAF                  ");
-	  	OsdDrawStr(7,2,COLOR(WHITE,BLACK), "E\xAF                  ");
-	  	OsdDrawStr(8,2,COLOR(WHITE,BLACK), "F\xAF                 ");
-	  	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF                 ");
-	  	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF                 ");
-		OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
+	  	OsdDrawStr(5,2,COLOR(WHITE,BLACK), "A\xAF");	
+	  	OsdDrawStr(6,0,COLOR(WHITE,BLACK), "  B\xAF");
+	  	OsdDrawStr(7,0,COLOR(WHITE,BLACK), "  E\xAF");
+	  	OsdDrawStr(8,0,COLOR(WHITE,BLACK), "  F\xAF");
+	  	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF");
+	  	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF");
 		OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
+		OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
 		OsdDrawStr(13,0,COLOR(WHITE,BLACK),"                             ");
-		DrawBattVol(12,2,COLOR(GREEN,BLACK),UpdataBattVol());
-		OSD_SetFrequencyMark(getFreNumber());
+		if(UpdataBattVol() > 350)
+		{
+			DrawBattVol(12,1,COLOR(GREEN,BLACK),UpdataBattVol());
+		}
+		else
+		{
+			DrawBattVol(12,1,COLOR(RED,BLACK),UpdataBattVol());
+		}
+		OSD_SetFrequencyMark(getFreNumber(),COLOR(WHITE,BLACK));
 		OsdBlockShow(0);
 	}
 	else
@@ -57,6 +64,12 @@ UINT8 Draw_Fre_point_inf_OSD(void)
 	}
 	return 0;	
 }
+
+
+//void RefreshCursorPanel
+//{
+//	
+//}
 
 UINT8 DrawFrePointCursor(UINT8 FreNumber)
 {
@@ -125,7 +138,7 @@ UINT8 DrawFrePointCursor(UINT8 FreNumber)
 	return 0;
 }
 
-void OSD_SetFrequencyMark(UINT8 FrNumber)
+void OSD_SetFrequencyMark(UINT8 FrNumber,UCHAR fbColor)
 {
 	UINT8 row,line;      //行，列标号
 	row  = FrNumber / 8;
@@ -157,7 +170,7 @@ void OSD_SetFrequencyMark(UINT8 FrNumber)
 			line = line + 3 + 8;
 			break;	
 	}
-	OsdDrawStr(5+row,line,COLOR(WHITE,WHITE)," ");
+	OsdDrawStr(5+row,line,fbColor,"&\2 ");
 }
 
 void OSD_ResetFrequencyMark(UINT8 FrNumber)
@@ -192,7 +205,32 @@ void OSD_ResetFrequencyMark(UINT8 FrNumber)
 			line = line + 3 + 8;
 			break;	
 	}
-	OsdDrawStr(5+row,line,COLOR(WHITE,BLACK)," ");
+	OsdDrawStr(5+row,line,COLOR(WHITE,BLACK),"&\2 ");
+}
+
+
+void OSD_SetFrequencyRssiMark(UINT8 FrNumber,UINT8 RSSI)
+{
+	if(RSSI <= QUIET_FR_LIMIT_LOW)
+	{
+		OSD_SetFrequencyMark(FrNumber,COLOR(GREEN,BLACK));
+	}
+	
+	if(QUIET_FR_LIMIT_LOW < RSSI && RSSI <= QUIET_FR_LIMIT_MEDIUM)
+	{
+		OSD_SetFrequencyMark(FrNumber,COLOR(YELLOW,BLACK));
+	}
+
+	if(QUIET_FR_LIMIT_MEDIUM < RSSI)
+	{
+		OSD_SetFrequencyMark(FrNumber,COLOR(RED,BLACK));
+	}
+}
+
+void OSD_ResetFrequencyRssiMark(UINT8 FrNumber)
+{
+
+
 }
 
 /*UINT8 DrawBattVol(void)

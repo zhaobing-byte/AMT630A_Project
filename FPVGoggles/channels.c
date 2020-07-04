@@ -21,10 +21,16 @@
 #include "Delay.h"
 #include "Draw_osd.h"
 #include "Debug.h"
+#include "DataType.h"
+#include "MsgMap.h"
+#include "Debug.h"
+#include "Mcu.h"
+#include "Osd_menu.h"
 
 
 #define RSSI_CH             CH1              //RX_RSSI_ADC 的值在通道1上采集
 #define USE_LBAND  
+static FrequencyPointStatus lastFrstatus;
 static UINT CODE channelTable[] = {
 	
 	#define _CHANNEL_REG_FLO(f) ((f-479)/2)
@@ -402,7 +408,6 @@ UINT8 getCurrentAdcRssiValue(void)
 		DelayMs(1);
 	}	
 	CurrentAdcVal = POS_GetBestAdcRssiVal(RSSIAdcBuf,4);
-	printf("%d",CurrentAdcVal);
 	CurrentRSSIVal = (99.0)/(2200.0-500.0)*(CurrentAdcVal-500.0);
 	return CurrentRSSIVal;
 }
@@ -413,29 +418,71 @@ UINT8 FastSearchFrequency(void)
 	UINT8 CurrentRssi = 0;
 	UINT8 ChannelIndex;
 	UINT8 MAX_RSSI_CH_FLG = 0;
+//	static UINT8 XDATA RSSIAdcBuf[48];
 	for(ChannelIndex = 0 ; ChannelIndex < 48 ; ChannelIndex++)  
 	{
-		setSynthRegisterB(getSynthRegisterB(ChannelIndex));      //设置频点
-		if(ChannelIndex != 0)
-		{
-			OSD_ResetFrequencyMark(ChannelIndex-1);
-		}
-		OSD_SetFrequencyMark(ChannelIndex);
-		DelayMs(20);
-		CurrentRssi =  getCurrentAdcRssiValue();		
-		if(CurrentRssi >= CurrentRssiMax)
-		{
-			CurrentRssiMax = CurrentRssi;
-			MAX_RSSI_CH_FLG = ChannelIndex;
-		} 
+		
+			setSynthRegisterB(getSynthRegisterB(ChannelIndex));      //设置频点
+			DelayMs(20);
+			CurrentRssi =  getCurrentAdcRssiValue();
+			OSD_SetFrequencyRssiMark(ChannelIndex,CurrentRssi);
+		//	RSSIAdcBuf[ChannelIndex] = CurrentRssi;                  //记录40个频点的RSSI
+			if(CurrentRssi >= CurrentRssiMax)
+			{
+				CurrentRssiMax = CurrentRssi;
+				MAX_RSSI_CH_FLG = ChannelIndex;
+			} 
+			OsdDrawStr(12,7,COLOR(CYAN,BLACK),"searching...");
 	}
 	SetBuzzerOn(2);
 	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
-	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG);
+	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG,COLOR(RED,BLACK));
+	
 	return MAX_RSSI_CH_FLG;
 }
 
 
+
+
+
+
+UINT8 FastScanFrequency(void)
+{
+	UINT8 CurrentRssiMax = 0;
+	UINT8 CurrentRssi = 0;
+	UINT8 ChannelIndex;
+	UINT8 MAX_RSSI_CH_FLG = 0;
+	for(ChannelIndex = 0 ; ChannelIndex < 48 ; ChannelIndex++)  
+	{
+			setSynthRegisterB(getSynthRegisterB(ChannelIndex));      //设置频点
+			DelayMs(20);
+			CurrentRssi =  getCurrentAdcRssiValue();
+			if(CurrentRssi >= CurrentRssiMax)
+			{
+				CurrentRssiMax = CurrentRssi;
+				MAX_RSSI_CH_FLG = ChannelIndex;
+			} 
+			OSD_SetFrequencyRssiMark(ChannelIndex,CurrentRssi);
+			OsdDrawStr(12,7,COLOR(CYAN,BLACK),"scanning...");			
+	}
+	SetBuzzerOn(2);
+	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
+	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG,COLOR(RED,BLACK));
+	return MAX_RSSI_CH_FLG;
+}
+
+
+void setFrequencyPointStatus(UINT8 LashFRNumber,UINT8 LashFRrssi)
+{
+	lastFrstatus.RF_Number =  LashFRNumber;
+	lastFrstatus.RSSI = LashFRrssi;
+}
+
+void getFrequencyPointStatus(FrequencyPointStatus *LastFrStatus)
+{
+	LastFrStatus->RF_Number = lastFrstatus.RF_Number;
+	LastFrStatus->RSSI = lastFrstatus.RSSI;
+}
 /*****************************************
 			迭代搜频率
 *****************************************/

@@ -29,6 +29,7 @@
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
 
 bit MENU_KEYPRESS_FLAG = 0;
+static FrequencyPointStatus last_Fr_status;
 
 UINT8 rf_tab_line = 0;   //列
 UINT8 rf_tab_row = 0;    //行
@@ -105,7 +106,10 @@ UCHAR KeyMsgProcess(MSG curMsg)
 						{
 							rf_tab_row = 0;
 						}
-						setSynthRegisterB(getSynthRegisterB(rf_tab_row*8+rf_tab_line)); 
+						getFrequencyPointStatus(&last_Fr_status);
+						OSD_SetFrequencyRssiMark(last_Fr_status.RF_Number,last_Fr_status.RSSI);
+						setSynthRegisterB(getSynthRegisterB(rf_tab_row*8+rf_tab_line));         //切换到相应频点
+						setFrequencyPointStatus(rf_tab_row*8+rf_tab_line,getCurrentAdcRssiValue());
 					}
 				}
 		
@@ -151,13 +155,19 @@ UCHAR KeyMsgProcess(MSG curMsg)
 						{
 							rf_tab_line = 0;
 						}
+						getFrequencyPointStatus(&last_Fr_status);
+						OSD_SetFrequencyRssiMark(last_Fr_status.RF_Number,last_Fr_status.RSSI);
 						setSynthRegisterB(getSynthRegisterB(rf_tab_row*8+rf_tab_line)); 
+						setFrequencyPointStatus(rf_tab_row*8+rf_tab_line,getCurrentAdcRssiValue());
 					}
 				}
 		
 				if(g_UserInputInfo.Status == KEYHOLD)
 				{
-					printfStr("MSG_UPK_RIGHT KEYHOLD");					
+					printfStr("MSG_UPK_RIGHT KEYHOLD");	
+					rf_rssi_max_number = FastScanFrequency();                              //长按RIGHT 空间内频点质量扫描
+					rf_tab_row  = rf_rssi_max_number / 8;
+					rf_tab_line = rf_rssi_max_number % 8;
 				}
 
 				if(g_UserInputInfo.Status == (inputSpHold |inputHold))
@@ -187,6 +197,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					SetBuzzerOn(1);
+					printfStr("MSG_UPK_MENU KEYPRESS");
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
 				}
 			
