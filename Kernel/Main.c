@@ -31,7 +31,7 @@
 #include "AMT_Mcu.h"
 #include "channels.h"
 #include "Draw_osd.h"
-
+#include "ConfigLcdPara.h"
 UINT16 BattVol;
 
 UINT16 UpdataBattVol(void)
@@ -135,6 +135,11 @@ void main(void)
 		if(batt_updata_loop_count > 2000)
 		{
 			BattVol = GetBatteryVol();
+			//需要调用#include "ConfigLcdPara.h"
+			BRIGHT_REG    =  DataCurve(BRIGHT_MIN,g_ucbrightness,BRIGHT_MAX, 50,MAX_VALUE);                 //亮度
+			CONTRAST_REG  =  DataCurve(CONTRAST_MIN,g_ucContrast,CONTRAST_MAX,50,MAX_VALUE);                //对比度
+			SATURATION_REG=  DataCurve(SATURATION_MIN,g_ucSaturation,SATURATION_MAX,50,MAX_VALUE);          //色度
+			TINT_REG      =  TintCurve(50,MAX_VALUE);                                                       //色调 
 			batt_updata_loop_count = 0;
 		}
 		if(draw_osd_loop_count > 200)

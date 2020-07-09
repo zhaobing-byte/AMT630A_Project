@@ -418,7 +418,6 @@ UINT8 FastSearchFrequency(void)
 	UINT8 CurrentRssi = 0;
 	UINT8 ChannelIndex;
 	UINT8 MAX_RSSI_CH_FLG = 0;
-//	static UINT8 XDATA RSSIAdcBuf[48];
 	for(ChannelIndex = 0 ; ChannelIndex < 48 ; ChannelIndex++)  
 	{
 		
@@ -426,7 +425,6 @@ UINT8 FastSearchFrequency(void)
 			DelayMs(20);
 			CurrentRssi =  getCurrentAdcRssiValue();
 			OSD_SetFrequencyRssiMark(ChannelIndex,CurrentRssi);
-		//	RSSIAdcBuf[ChannelIndex] = CurrentRssi;                  //记录40个频点的RSSI
 			if(CurrentRssi >= CurrentRssiMax)
 			{
 				CurrentRssiMax = CurrentRssi;
