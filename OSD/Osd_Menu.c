@@ -682,7 +682,7 @@ BOOL ExectComd(ComdType OpratComd)
 						DrawOsdMenu();
 						TurnOnBackLight();
 						POS_ClearWatchDog();
-						DelayMs(4000);
+						DelayMs(0);
 						HideMenu();
 						SetVDETestSwitch(VDE_CLOSE);
 						ResetMenuIndex();

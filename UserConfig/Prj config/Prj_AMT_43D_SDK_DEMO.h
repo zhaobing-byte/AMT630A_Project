@@ -307,8 +307,8 @@
 
 
 //[Logo menu X Y position]
-#define LOGO1MENU_START_X_POS 		    0X0070   //LOGO1 MENU 菜单的X起始位置
-#define LOGO1MENU_START_Y_POS 		    0X0055   //LOGO1 MENU 菜单的Y起始位置
+#define LOGO1MENU_START_X_POS 		    0X0000   //LOGO1 MENU 菜单的X起始位置        70
+#define LOGO1MENU_START_Y_POS 		    0X0000   //LOGO1 MENU 菜单的Y起始位置 55
 
 #define LOGO2MENU_START_X_POS 		    0X0070   //LOGO2 MENU 菜单的X起始位置
 #define LOGO2MENU_START_Y_POS 		    0X0055   //LOGO2 MENU 菜单的Y起始位置

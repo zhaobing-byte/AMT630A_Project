@@ -42,7 +42,7 @@ UINT8 FpvOsdUpdata(void)
 	else
 	{
 		//RefreshCursorPanel();
-		OsdBlockHide(0);
+		OsdBlockHide(0);	
 	}
 	return 0;	
 }
@@ -67,8 +67,8 @@ void DrawFPVOsdWind(void)
 	OsdDrawStr(6,0,COLOR(WHITE,BLACK), "  B\xAF");
 	OsdDrawStr(7,0,COLOR(WHITE,BLACK), "  E\xAF");
 	OsdDrawStr(8,0,COLOR(WHITE,BLACK), "  F\xAF");
-	OsdDrawStr(9,2,COLOR(WHITE,BLACK), "R\xAF");
-	OsdDrawStr(10,2,COLOR(WHITE,BLACK),"L\xAF");
+	OsdDrawStr(9,0,COLOR(WHITE,BLACK), "  R\xAF");
+	OsdDrawStr(10,0,COLOR(WHITE,BLACK),"  L\xAF");
 	OsdDrawStr(5,4,COLOR(WHITE,BLACK),"                ");
 	OsdDrawStr(6,4,COLOR(WHITE,BLACK),"                ");
 	OsdDrawStr(7,4,COLOR(WHITE,BLACK),"                ");
