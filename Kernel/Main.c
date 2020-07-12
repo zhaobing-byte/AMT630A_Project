@@ -46,6 +46,7 @@ void main(void)
     DisableWatchdog();
 		
 	InitSystem();  
+	SetPWM1(800,50);
 	printfStr("<<<<<<<<<<<<<<  Welcom to ARK >>>>>>>>>>>>\n");
 	
 	MenuProcessKey(COMD_SelPowerOnMode);

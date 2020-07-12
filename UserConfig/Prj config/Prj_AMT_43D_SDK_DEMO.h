@@ -182,12 +182,25 @@
 #ifdef SPIDetectEn
 
 #define hw_spi_setSEL_output(x)			   SetP0_7(x)
-#define hw_spi_setCLK_output(x)			   SetP3_7(x)
-#define hw_spi_setSDA_output(x)            SetP0_6(x)
-#define hw_spi_getSDA_input()              GetP0_6()
+#define hw_spi_setCLK_output(x)			   SetP0_6(x)
+#define hw_spi_setSDA_output(x)            SetP3_7(x)
+#define hw_spi_getSDA_input()              GetP3_7()
  
 #endif
 
+
+/*========================================================
+<<<<<<<<<<<<<<<<<<<<   电子开关功能配置  >>>>>>>>>>>>>>>>>>>>>
+=========================================================*/ 
+
+
+#define ElectronicSwitchEn
+#ifdef ElectronicSwitchEn
+
+#define hw_pow_on()     SetP0_3(1)
+#define hw_pow_off()    SetP0_3(0)
+
+#endif
 /*========================================================
 <<<<<<<<<<<<<<<<<<<<   按键功能配置>>>>>>>>>>>>>>>>>>>>>
 =========================================================*/ 

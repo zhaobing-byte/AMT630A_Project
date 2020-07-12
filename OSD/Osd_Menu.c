@@ -29,6 +29,8 @@
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
 
 bit MENU_KEYPRESS_FLAG = 0;
+
+bit POW_FLAG = 0;
 static FrequencyPointStatus last_Fr_status;
 
 UINT8 rf_tab_line = 0;   //列
@@ -419,6 +421,17 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{
 					printfStr("MSG_UPK_POWER KEYLONGPRESS");
 					g_UserInputInfo.Status &= (~inputSpHold);
+					POW_FLAG = ~POW_FLAG;
+					if(POW_FLAG == 1)
+					{
+						TurnOnBackLight();
+						hw_pow_on();         //长按开机案件，开机
+					}
+					else
+					{
+						TurnOffBackLight();
+						hw_pow_off();       //长按POW案件，关机
+					}
 				}
 				
 			}
@@ -680,7 +693,7 @@ BOOL ExectComd(ComdType OpratComd)
 						OsdBlockEnable(CurrentBlock);
 						OsdConfigScaler(OsdScalerRatio);
 						DrawOsdMenu();
-						TurnOnBackLight();
+					//	TurnOnBackLight();
 						POS_ClearWatchDog();
 						DelayMs(0);
 						HideMenu();

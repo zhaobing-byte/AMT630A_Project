@@ -255,6 +255,7 @@ void InitSystem(void)
 	GetProCompielTime();
 	
     MainInterruptEn();
+	//SetVDETestSwitch(VDE_RED);
 }
 
 
