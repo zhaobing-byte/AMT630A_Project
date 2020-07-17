@@ -26,7 +26,7 @@
 #include "Debug.h"
 #include "Mcu.h"
 #include "Osd_menu.h"
-
+#include "Buzzer.h"
 
 #define RSSI_CH             CH1              //RX_RSSI_ADC 的值在通道1上采集
 #define USE_LBAND  
@@ -432,7 +432,7 @@ UINT8 FastSearchFrequency(void)
 			} 
 			OsdDrawStr(12,7,COLOR(CYAN,BLACK),"searching...");
 	}
-	SetBuzzerOn(2);
+	BuzzerOn(1);
 	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
 	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG,COLOR(RED,BLACK));
 	
@@ -463,7 +463,7 @@ UINT8 FastScanFrequency(void)
 			OSD_SetFrequencyRssiMark(ChannelIndex,CurrentRssi);
 			OsdDrawStr(12,7,COLOR(CYAN,BLACK),"scanning...");			
 	}
-	SetBuzzerOn(2);
+	BuzzerOn(2);
 	setSynthRegisterB(getSynthRegisterB(MAX_RSSI_CH_FLG));	      //跳到当前空间RSSI最大的频点
 	OSD_SetFrequencyMark(MAX_RSSI_CH_FLG,COLOR(RED,BLACK));
 	return MAX_RSSI_CH_FLG;

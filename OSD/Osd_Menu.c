@@ -24,6 +24,7 @@
 #include "channels.h"
 #include "Delay.h"
 #include "Draw_osd.h"
+#include "Buzzer.h"
 #if OSD_STYLE_TYPE != OSD_STYLE_ARK
   "当前OSD风格不匹配，请设置为ARK OSD风格。"
 #endif//OSD_STYLE_TYPE == OSD_STYLE_ARK
@@ -89,7 +90,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn(1);
+					 BuzzerOn(1);
 				   }
 			    }
 			}
@@ -100,7 +101,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_LEFT PRESS");
-					SetBuzzerOn(1);
+					BuzzerOn(1);
 					if(MENU_KEYPRESS_FLAG)
 					{
 						rf_tab_row++;
@@ -139,7 +140,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn(1);
+					 BuzzerOn(1);
 				   }
 			    }
 			}
@@ -149,7 +150,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
 					printfStr("MSG_UPK_RIGHT PRESS");
-					 SetBuzzerOn(1);
+					 BuzzerOn(1);
 					if(MENU_KEYPRESS_FLAG)
 					{
 						rf_tab_line++;
@@ -189,7 +190,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				{				  
 				   if(inputPress == g_UserInputInfo.Status)
 				   { 
-					 SetBuzzerOn(1);
+						BuzzerOn(1);
 				   }
 			    }
 			}
@@ -198,7 +199,7 @@ UCHAR KeyMsgProcess(MSG curMsg)
 			{
 				if(g_UserInputInfo.Status == KEYPRESS)
 				{
-					SetBuzzerOn(1);
+					BuzzerOn(1);
 					DrawFPVOsdWind();
 					printfStr("MSG_UPK_MENU KEYPRESS");
 				    MENU_KEYPRESS_FLAG = ~MENU_KEYPRESS_FLAG;
@@ -693,7 +694,7 @@ BOOL ExectComd(ComdType OpratComd)
 						OsdBlockEnable(CurrentBlock);
 						OsdConfigScaler(OsdScalerRatio);
 						DrawOsdMenu();
-					//	TurnOnBackLight();
+						TurnOnBackLight();
 						POS_ClearWatchDog();
 						DelayMs(0);
 						HideMenu();

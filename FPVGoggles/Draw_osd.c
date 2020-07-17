@@ -75,7 +75,7 @@ void DrawFPVOsdWind(void)
 	OsdDrawStr(8,4,COLOR(WHITE,BLACK),"                ");
 	OsdDrawStr(9,4,COLOR(WHITE,BLACK),"                ");
 	OsdDrawStr(10,4,COLOR(WHITE,BLACK),"                ");
-	OsdDrawStr(11,1,COLOR(WHITE,BLACK),"\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
+	OsdDrawStr(11,0,COLOR(WHITE,BLACK)," \xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5\xB5 ");
 	OsdDrawStr(12,0,COLOR(WHITE,BLACK),"                             ");
 	OsdDrawStr(13,0,COLOR(WHITE,BLACK),"                             ");
 }

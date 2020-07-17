@@ -711,6 +711,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\FPVGoggles\BattAdc.c</FilePath>
             </File>
+            <File>
+              <FileName>Buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\FPVGoggles\Buzzer.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
