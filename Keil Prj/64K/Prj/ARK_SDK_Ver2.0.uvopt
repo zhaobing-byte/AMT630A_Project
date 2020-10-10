@@ -480,10 +480,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>43</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>101</TopLine>
-      <CurrentLine>122</CurrentLine>
+      <TopLine>118</TopLine>
+      <CurrentLine>118</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\Kernel\Main.c</PathWithFileName>
       <FilenameWithoutPath>Main.c</FilenameWithoutPath>
@@ -1131,10 +1131,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>18</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>29</CurrentLine>
+      <TopLine>25</TopLine>
+      <CurrentLine>25</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\channels.c</PathWithFileName>
       <FilenameWithoutPath>channels.c</FilenameWithoutPath>
@@ -1162,21 +1162,21 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>19</TopLine>
-      <CurrentLine>57</CurrentLine>
+      <CurrentLine>19</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\BattAdc.c</PathWithFileName>
       <FilenameWithoutPath>BattAdc.c</FilenameWithoutPath>
     </File>
     <File>
       <GroupNumber>11</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>64</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>51</ColumnNumber>
+      <ColumnNumber>52</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>28</TopLine>
-      <CurrentLine>42</CurrentLine>
+      <TopLine>31</TopLine>
+      <CurrentLine>51</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\Buzzer.c</PathWithFileName>
       <FilenameWithoutPath>Buzzer.c</FilenameWithoutPath>
@@ -1524,7 +1524,7 @@
   <AlienFiles>
     <PathWithFilename>E:\github\AMT630A_Project\GETUSERINPUT\KEY\ADCKEYPAD.H</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>31</CurrentLine>
+    <CurrentLine>21</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -2966,13 +2966,19 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>9</ActiveTab>
       <Documents>
         <Doc>
+          <Name>..\..\..\Kernel\Main.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>118</TopLine>
+          <CurrentLine>118</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>..\..\..\FPVGoggles\channels.c</Name>
-          <ColumnNumber>18</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>29</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>25</TopLine>
+          <CurrentLine>25</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGOGGLES\BUZZER.H</Name>
@@ -2988,9 +2994,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGoggles\Buzzer.c</Name>
-          <ColumnNumber>51</ColumnNumber>
-          <TopLine>28</TopLine>
-          <CurrentLine>42</CurrentLine>
+          <ColumnNumber>52</ColumnNumber>
+          <TopLine>31</TopLine>
+          <CurrentLine>51</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\FPVGOGGLES\BATTADC.H</Name>
@@ -3002,7 +3008,7 @@
           <Name>..\..\..\FPVGoggles\BattAdc.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>19</TopLine>
-          <CurrentLine>57</CurrentLine>
+          <CurrentLine>19</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_BatteryAdcMenu.c</Name>
@@ -3018,9 +3024,9 @@
         </Doc>
         <Doc>
           <Name>..\..\..\GETUSERINPUT\KEY\ADCKEYPAD.H</Name>
-          <ColumnNumber>0</ColumnNumber>
+          <ColumnNumber>108</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>31</CurrentLine>
+          <CurrentLine>21</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\OSD_MENU.H</Name>
@@ -3039,12 +3045,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>17</TopLine>
           <CurrentLine>31</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\..\Kernel\Main.c</Name>
-          <ColumnNumber>43</ColumnNumber>
-          <TopLine>101</TopLine>
-          <CurrentLine>122</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>

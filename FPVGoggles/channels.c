@@ -409,6 +409,10 @@ UINT8 getCurrentAdcRssiValue(void)
 	}	
 	CurrentAdcVal = POS_GetBestAdcRssiVal(RSSIAdcBuf,4);
 	CurrentRSSIVal = (99.0)/(2200.0-500.0)*(CurrentAdcVal-500.0);
+	if(CurrentRSSIVal > 99.0)
+	{
+		CurrentRSSIVal = 99.0;
+	}
 	return CurrentRSSIVal;
 }
 
