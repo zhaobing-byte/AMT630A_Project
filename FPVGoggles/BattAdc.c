@@ -55,10 +55,10 @@ UINT16 GetBatteryVol(void)
 	for(Index = 0 ; Index <= 4 ; Index ++)
 	{
 		BattAdcBuf[Index] = POS_EnableChipAdc(BATT_CH);
-		DelayMs(1);
+		DelayMs(2);
 	}
 	CurrentAdcVal = GetBestBatteryAdcVal(BattAdcBuf,4);
-	BATTVOL = 6.6*CurrentAdcVal/4096.0*100;
+	BATTVOL = 5.6*(float)CurrentAdcVal/4096.0*100.0;
 	return BATTVOL;
 }
 

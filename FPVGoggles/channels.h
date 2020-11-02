@@ -24,7 +24,7 @@
 	#define CHANNELS_SIZE 40
 #endif
 
-#define QUIET_FR_LIMIT_LOW 20
+#define QUIET_FR_LIMIT_LOW 30
 #define QUIET_FR_LIMIT_MEDIUM 70
 
 

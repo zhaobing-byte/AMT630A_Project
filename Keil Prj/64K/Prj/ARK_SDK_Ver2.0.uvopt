@@ -129,21 +129,6 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>48</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>Draw_osd.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>1</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
@@ -157,7 +142,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>22</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -1145,10 +1130,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>96</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>17</TopLine>
-      <CurrentLine>31</CurrentLine>
+      <TopLine>4</TopLine>
+      <CurrentLine>28</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\FPVGoggles\Draw_osd.c</PathWithFileName>
       <FilenameWithoutPath>Draw_osd.c</FilenameWithoutPath>
@@ -2966,8 +2951,14 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>9</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>..\..\..\FPVGoggles\Draw_osd.c</Name>
+          <ColumnNumber>96</ColumnNumber>
+          <TopLine>4</TopLine>
+          <CurrentLine>28</CurrentLine>
+        </Doc>
         <Doc>
           <Name>..\..\..\Kernel\Main.c</Name>
           <ColumnNumber>0</ColumnNumber>
@@ -3039,12 +3030,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>10</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\..\FPVGoggles\Draw_osd.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>17</TopLine>
-          <CurrentLine>31</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\..\OSD\Osd_Menu.c</Name>
