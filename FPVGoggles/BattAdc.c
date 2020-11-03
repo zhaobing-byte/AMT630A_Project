@@ -58,7 +58,7 @@ UINT16 GetBatteryVol(void)
 		DelayMs(2);
 	}
 	CurrentAdcVal = GetBestBatteryAdcVal(BattAdcBuf,4);
-	BATTVOL = 5.6*(float)CurrentAdcVal/4096.0*100.0;
+	BATTVOL = 6.8*(float)CurrentAdcVal/4096.0*100.0;
 	return BATTVOL;
 }
 

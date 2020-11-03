@@ -28,7 +28,7 @@ UINT8 FpvOsdUpdata(void)
 		OsdDrawGuage(3,1,99,COLOR(WHITE,BLACK),RSSI);	
 	  	OsdDrawStr(4,3,COLOR(WHITE,BLACK),"\xAF");
 		OsdDrawStr(12,6,COLOR(WHITE,BLACK),"               ");
-		if(UpdataBattVol() > 350)
+		if(UpdataBattVol() > 356)
 		{
 			DrawBattVol(12,1,COLOR(GREEN,BLACK),UpdataBattVol());
 		}

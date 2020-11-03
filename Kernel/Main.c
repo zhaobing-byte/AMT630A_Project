@@ -32,8 +32,9 @@
 #include "channels.h"
 #include "Draw_osd.h"
 #include "ConfigLcdPara.h"
-UINT16 BattVol;
+#include "Buzzer.h"
 
+UINT16 BattVol;
 UINT16 UpdataBattVol(void)
 {
 	return BattVol;
@@ -43,6 +44,7 @@ void main(void)
 {
 	UINT16 draw_osd_loop_count = 0;
 	UINT16 batt_updata_loop_count = 0;
+	UINT8 Low_voltage_warning_loop_count = 0;
     DisableWatchdog();
 		
 	InitSystem();  
@@ -135,12 +137,20 @@ void main(void)
 		}
 		draw_osd_loop_count++;
 		batt_updata_loop_count++;
-
+		
 		if(batt_updata_loop_count > 2000)
 		{
 			BattVol = GetBatteryVol();
 			//需要调用#include "ConfigLcdPara.h"
-			
+			Low_voltage_warning_loop_count++;
+			if(Low_voltage_warning_loop_count > 8)
+			{
+				if(BattVol < 357)
+				{
+					BuzzerOn(2);								                                                                                                 
+				}
+				Low_voltage_warning_loop_count = 0;
+			}
 			batt_updata_loop_count = 0;
 		}
 		if(draw_osd_loop_count > 200)
