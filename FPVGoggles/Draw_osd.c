@@ -19,7 +19,7 @@ UINT8 FpvOsdUpdata(void)
 	UINT8 RSSI;
 	if(get_menu_status())
 	{
-		hw_SelChannelToCVBS2();
+		//hw_SelChannelToCVBS2();
 	    RSSI = getCurrentAdcRssiValue();
 		setFrequencyPointStatus(getFreNumber(),RSSI);       //记录当前频点的通道编号以及RSSI
 		OsdDrawStr(1,6,COLOR(CYAN,BLACK),getName(getFreNumber()));
@@ -43,7 +43,7 @@ UINT8 FpvOsdUpdata(void)
 	else
 	{
 		//RefreshCursorPanel();
-		hw_SelChannelToCVBS1();
+		//hw_SelChannelToCVBS1();
 		OsdBlockHide(0);	
 	}
 	return 0;	

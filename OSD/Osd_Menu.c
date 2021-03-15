@@ -208,7 +208,9 @@ UCHAR KeyMsgProcess(MSG curMsg)
 				if(g_UserInputInfo.Status == KEYHOLD)    //长按menu 按键搜索频点
 				{
 					printfStr("MSG_UPK_MENU KEYHOLD");
+					hw_SelChannelToCVBS2();
 					rf_rssi_max_number = FastSearchFrequency();
+					hw_SelChannelToCVBS1();
 					rf_tab_row  = rf_rssi_max_number / 8;
 					rf_tab_line = rf_rssi_max_number % 8;
 				}

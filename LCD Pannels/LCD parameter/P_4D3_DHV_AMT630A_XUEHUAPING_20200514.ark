@@ -484,7 +484,7 @@ FC96 65 (DB,02)   NTSC  HFZ[7:0]   low 8 bits
 FC97 03 (03,02)   NTSC  HFZ[15:8]  high 8 bits
 FC98 ED (00,00)   NTSC  VFZ[7:0] low 8 bits
 FC99 01 (04,00)   NTSC  VFZ[7:0] high 8 bits
-FC9A 68 (5A,00)   NTSC  Thlen[7:0]  low 8 bits
+FC9A 96 (5A,00)   NTSC  Thlen[7:0]  low 8 bits
 FC9B 03 (03,00)   NTSC  Thlen[15:8] high 8 bits
 FC9C 01 (01,00)   NTSC  Hsyn_start[7:0]   low 8 bits
 FC9D 00 (00,00)   NTSC  Hsyn_start[15:8]  high 8 bits
@@ -509,7 +509,7 @@ FCAF 02 (00,02)   NTSC  up_black_num[7:0]
 FCB0 00 (00,02)   NTSC  down_black_num[7:0]
 FCB7 23 (06,00)   NTSC Tvlen[7:0]
 FCB8 02 (01,00)   NTSC Tvlen[15:8]
-FCBB 1E (38,00)   PAL Tvlen[7:0]
+FCBB 1B (38,00)   PAL Tvlen[7:0]
 FCBC 02 (01,00)   PAL Tvlen[15:8]
 FCBD 01 (00,00)   PAL BYPASS
 FCBE 00 (00,00)   PAL BYPASS
@@ -518,8 +518,8 @@ FCC2 6D (DB,02)   PAL  HFZ[7:0]   low 8 bits
 FCC3 03 (03,02)   PAL  HFZ[15:8]  high 8 bits
 FCC4 4F (00,00)   PAL  VFZ[7:0] low 8 bits
 FCC5 02 (04,00)   PAL  VFZ[7:0] high 8 bits
-FCC6 B4 (60,00)   PAL  Thlen[7:0]  low 8 bits
-FCC7 06 (03,00)   PAL  Thlen[15:8] high 8 bits
+FCC6 5E (60,00)   PAL  Thlen[7:0]  low 8 bits
+FCC7 04 (03,00)   PAL  Thlen[15:8] high 8 bits
 FCC8 01 (01,00)   PAL  Hsyn_start[7:0]   low 8 bits
 FCC9 00 (00,00)   PAL  Hsyn_start[15:8]  high 8 bits
 FCCA 06 (06,00)   PAL  Hsyn_stop[7:0]     low 8 bits
@@ -531,10 +531,10 @@ FCCF 03 (02,00)   PAL  Hgate_stop[15:8] high 8 bits
 FCD1 00 (00,00)   PAL  Vsyn_start[15:8] high 8 bits
 FCD2 0A (08,00)   PAL  Vsyn_stop[7:0] low 8 bits
 FCD3 00 (00,00)   PAL  Vsyn_stop[15:8] high 8 bits
-FCD4 1D (08,00)   PAL  Vgate_start[7:0] low 8 bits
+FCD4 21 (08,00)   PAL  Vgate_start[7:0] low 8 bits
 FCD5 00 (00,00)   PAL  Vgate_start[15:8] high 8 bits
-FCD6 FF (28,00)   PAL  Vgate_stop[7:0] low 8 bits
-FCD7 01 (01,00)   PAL  Vgate_stop[15:8] high 8 bits
+FCD6 01 (28,00)   PAL  Vgate_stop[7:0] low 8 bits
+FCD7 02 (01,00)   PAL  Vgate_stop[15:8] high 8 bits
 FCD8 0B (16,02)   PAL  left_cut_num[7:0]
 FCD9 00 (00,02)   PAL  left_black_num[7:0]
 FCDA 00 (00,02)   PAL  right_black_num[7:0]
@@ -546,7 +546,7 @@ FCE5 98 (60,03)   Thlen_read[7:0] low 8 bits
 FCE6 05 (03,03)   Thlen_read[15:8] high 8 bits
 FCE7 0B (00,03)   PN_read
 FCE8 03 (00,03)   TVLEN_READ[15:8]  Only read
-FCD0 09 (03,00)   PAL  Vsyn_start[7:0] low 8 bits
+FCD0 00 (03,00)   PAL  Vsyn_start[7:0] low 8 bits
 FCE9 97 (02,03)   TVLEN_READ[7:0] Only read
 FCB6 02 (00,00)   NTSC  down_black_num[7:0]
 FCE2 02 (00,00)   PAL  down_black_num[7:0]

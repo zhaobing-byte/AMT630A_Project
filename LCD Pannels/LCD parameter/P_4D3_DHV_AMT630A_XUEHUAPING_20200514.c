@@ -34,8 +34,8 @@ D_RGB888
   -1
   -1
   -1
-Update date:Monday, May 18, 2020
-Update time:15:42:02
+Update date:Monday, March 15, 2021
+Update time:19:14:35
 History:
 
 
@@ -71,6 +71,7 @@ History:
 
 
  * Jordan.chen/2014.11.15-17:05/4D3ok
+
 
 
 
@@ -130,8 +131,8 @@ PAL
  864
  312
 
-Update date:Monday, May 18, 2020
-Update time:15:42:02
+Update date:Monday, March 15, 2021
+Update time:19:14:35
 */
 PanlstaticPara code AV1_staticPara[]=
 {
@@ -174,7 +175,7 @@ PanlstaticPara code AV1_staticPara[]=
     {0XFC93,0X00}, 
     {0XFC98,0XED}, 
     {0XFC99,0X01}, 
-    {0XFC9A,0X68}, 
+    {0XFC9A,0X96}, 
     {0XFC9B,0X03}, 
     {0XFC9C,0X01}, 
     {0XFC9D,0X00}, 
@@ -194,15 +195,15 @@ PanlstaticPara code AV1_staticPara[]=
     {0XFCAB,0X02}, 
     {0XFCB7,0X23}, 
     {0XFCB8,0X02}, 
-    {0XFCBB,0X1E}, 
+    {0XFCBB,0X1B}, 
     {0XFCBC,0X02}, 
     {0XFCBD,0X01}, 
     {0XFCBE,0X00}, 
     {0XFCBF,0X00}, 
     {0XFCC4,0X4F}, 
     {0XFCC5,0X02}, 
-    {0XFCC6,0XB4}, 
-    {0XFCC7,0X06}, 
+    {0XFCC6,0X5E}, 
+    {0XFCC7,0X04}, 
     {0XFCC8,0X01}, 
     {0XFCC9,0X00}, 
     {0XFCCA,0X06}, 
@@ -214,11 +215,11 @@ PanlstaticPara code AV1_staticPara[]=
     {0XFCD1,0X00}, 
     {0XFCD2,0X0A}, 
     {0XFCD3,0X00}, 
-    {0XFCD4,0X1D}, 
+    {0XFCD4,0X21}, 
     {0XFCD5,0X00}, 
-    {0XFCD6,0XFF}, 
-    {0XFCD7,0X01}, 
-    {0XFCD0,0X09}, 
+    {0XFCD6,0X01}, 
+    {0XFCD7,0X02}, 
+    {0XFCD0,0X00}, 
     {0XFCB6,0X02}, 
     {0XFCE2,0X02}, 
 //GAMMA
@@ -424,7 +425,7 @@ VideoChannel code VideoChannelPara[]=
 #define PWMA_VAL 0X0000
 #define PWMB_VAL 0X0000
 #define PAL_PLL_CLK 0X0043
-#define NTSC_PLL_CLK 0X0045
+#define NTSC_PLL_CLK 0X0043
 #define PWM0_CYCLE_VAL 0X00FF
 #define PWM1_CYCLE_VAL 0X00FF
 #define PWM2_CYCLE_VAL 0X00FF
